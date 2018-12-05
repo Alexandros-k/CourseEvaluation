@@ -6,9 +6,12 @@
     http://www.springframework.org/schema/security  
     http://www.springframework.org/schema/security/spring-security.xsd">  
     
- 
+
      <http auto-config="true" use-expressions="true">  
-        <intercept-url pattern="/**" access="isAuthenticated()" />                  
+       <intercept-url pattern="/**" access="isAuthenticated()" /> 
+        <!--  <intercept-url pattern="/index" access="hasRole('ROLE_ADMIN')" />
+           <intercept-url pattern="/professorHomePage" access="hasRole('ROLE_USER')" />  -->  
+           <form-login authentication-success-handler-ref="authSuccessHandler" />              
         <logout logout-url="/static/j_spring_security_logout"
          logout-success-url="/login" invalidate-session="true"/>
         <csrf disabled="true"/>
@@ -33,6 +36,7 @@ authorities-by-username-query=
 "select username,role from users where username=?"
 ></jdbc-user-service>
     
+    <beans:bean id="authSuccessHandler" class="org/phish/helper/MySimpleUrlAuthenticationSuccessHandler" />
   
 </beans:beans>  
 <!-- 

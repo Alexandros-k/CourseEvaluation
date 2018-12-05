@@ -43,4 +43,11 @@ public class UserService{
 		userDAO.deleteUser(id);
 		
 	}
+	
+	@Transactional
+	public String getUser(String username) {
+		return userDAO.getUser(username);
+		
+	}
+	
 }

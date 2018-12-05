@@ -1,10 +1,16 @@
 package org.phish.controller;
 
+import java.security.Principal;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.phish.model.User;
 import org.phish.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +23,16 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	
+
+	
+	@RequestMapping(value = "/admin", method = RequestMethod.GET,headers = "Accept=application/json")
+	public String displayAdminPage(Model model) {
+		
+	
+		
+		return "adminStartingPage";
+	}
 	
 	@RequestMapping(value = "/professorsPage", method = RequestMethod.GET,headers = "Accept=application/json")
 	public String displayMainPage(Model model) {
@@ -38,7 +54,7 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value = "/lala/test",method = RequestMethod.POST,headers = "Accept=application/json")
+	@RequestMapping(value = "/test",method = RequestMethod.POST,headers = "Accept=application/json")
 	public String addUser(@ModelAttribute("user")User user) {
 		
 		userService.addUser(user);
@@ -47,7 +63,7 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping(value = "/updateUser/lala/test",method = RequestMethod.POST,headers = "Accept=application/json")
+	@RequestMapping(value = "/updateUser/test",method = RequestMethod.POST,headers = "Accept=application/json")
 	public String updateUser(@ModelAttribute("user")User user) {
 		
 		userService.editUder(user);
@@ -70,9 +86,16 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping(value = "lala/professorHomePage",method = RequestMethod.GET,headers = "Accept=application/json")
-	public String sendToProfessorHomePage() {		
+	@RequestMapping(value = "/professorHomePage",method = RequestMethod.GET,headers = "Accept=application/json")
+	public String sendToProfessorHomePage(Principal principal,Model model) {	
 		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		String username = authentication.getName();
+		
+		String userlist = userService.getUser(username);		
+	
+		model.addAttribute("firstname",userlist);
 		return "professorHomePage";
 		
 	}

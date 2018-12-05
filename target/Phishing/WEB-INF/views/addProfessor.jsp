@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form:form method="post" modelAttribute="user" action="lala/test">
+<form:form method="post" modelAttribute="user" action="test">
 <table>
 <tr>
 <th>Add User</th>

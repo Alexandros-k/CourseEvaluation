@@ -44,7 +44,6 @@
 </table>
 </c:if>
 
-<a href="index.jsp">return to main page</a>
-
+<a href="<c:url value="/admin"/>">return to main page</a>
 </body>
 </html>

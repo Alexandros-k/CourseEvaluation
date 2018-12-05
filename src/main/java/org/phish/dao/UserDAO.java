@@ -3,6 +3,7 @@ package org.phish.dao;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.phish.model.User;
@@ -52,6 +53,13 @@ public class UserDAO {
 		
 	}
 	
-	
+	public String getUser(String username) {
+		Session session = this.sessionFactory.getCurrentSession();
+		Query q = session.createQuery("select u.firstName from User as u where u.username = :username");//Otan exeis hql grafeis ta onomata opws einai sto model kai oxi stin db
+		q.setString("username",username );
+		String userList = (String) q.uniqueResult();
+		return userList;
+	}
+
 
 }
