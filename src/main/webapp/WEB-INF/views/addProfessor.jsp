@@ -19,6 +19,7 @@
 <tr><td>Last Name:<form:input path="userDetails.lastName"></form:input></td></tr> --%>
 <tr><td>Username:<form:input path="username"></form:input></td></tr>
 <tr><td>Password:<form:input path="password"></form:input></td></tr>
+
 <tr><td>Role:<form:input path="role.id"></form:input></td></tr>
 
 
