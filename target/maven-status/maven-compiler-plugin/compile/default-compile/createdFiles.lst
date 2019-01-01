@@ -1,5 +1,9 @@
+org\phish\model\Role.class
 org\phish\model\User.class
+org\phish\dao\UserDetailsDAO.class
 org\phish\service\UserService.class
 org\phish\controller\UserController.class
-org\phish\dao\UserDAO.class
 org\phish\helper\MySimpleUrlAuthenticationSuccessHandler.class
+org\phish\model\UserDetails.class
+org\phish\service\UserDetailsService.class
+org\phish\dao\UserDAO.class

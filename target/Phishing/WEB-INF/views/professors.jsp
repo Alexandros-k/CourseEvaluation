@@ -24,19 +24,20 @@
 		<th width="60">username</th>
 		<th width="80">password</th>
 		<th width="60">role</th>
-		<th width="60">course</th>
+		
 		
 	</tr>
 
 <c:forEach items="${listOfUsers}" var="user">
+
 <tr>
 <td width="80">${user.id}</td>
-<td width="80">${user.firstName}</td>
-<td width="80">${user.lastName}</td>
+<%-- <td width="80">${user.userDetails.firstName}</td>
+<td width="80">${user.userDetails.lastName}</td> --%>
 <td width="80">${user.username}</td>
 <td width="80">${user.password}</td>
-<td width="80">${user.role}</td>
-<td width="80">${user.course}</td>
+<td width="80">${user.role.role}</td>
+
 <td><a href="<c:url value ='/updateUser/${user.id}'/>">Edit</a></td>
 <td><a href="<c:url value ='/deleteUser/${user.id}'/>">Delete</a></td>
 </tr>

@@ -1,11 +1,17 @@
 package org.phish.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="USERS")
@@ -15,47 +21,31 @@ public class User {
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	 int id;
-	
-	@Column(name="firstname")
-	 String firstName;
-	
-	@Column(name="lastname")
-	 String lastName;
-	
+
 	@Column(name="username")
 	 String username;
 	
 	@Column(name="password")
 	 String password;
 	
-	@Column(name="role")
-	 String role;
+	@ManyToOne(cascade = CascadeType.ALL)
+	 Role role;
 	
-	@Column(name="course")
-	private String course;
 
+	/*@OneToOne(mappedBy="user",cascade = { CascadeType.ALL })
+	UserDetails userDetails;*/
+	
+	/*  @ManyToOne(cascade = CascadeType.ALL)
+	    @JoinColumn(name="role_id")
+	     Role role;*/
+	
+	
+	
 	public User() {
 		super();
 	}
 
-	public User(int id, String username, String password) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-	}
-
-	public User(int id, String firstName, String lastName, String username, String password, String role,
-			String course) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.username = username;
-		this.password = password;
-		this.role = role;
-		this.course = course;
-	}
+	
 
 	public int getId() {
 		return id;
@@ -63,22 +53,6 @@ public class User {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 
 	public String getUsername() {
@@ -97,21 +71,26 @@ public class User {
 		this.password = password;
 	}
 
-	public String getRole() {
+	
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
-	public String getCourse() {
-		return course;
+	/*public UserDetails getUserDetails() {
+		return userDetails;
 	}
 
-	public void setCourse(String course) {
-		this.course = course;
-	}
+	public void setUserDetails(UserDetails userDetails) {
+		this.userDetails = userDetails;
+	}*/
+
+	
+
+	
 	
 	
 	

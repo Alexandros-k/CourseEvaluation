@@ -36,6 +36,7 @@ public class UserDAO {
 	public void addUser(User user) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.persist(user);
+		
 	}
 
 	public void updateUser(User user) {

@@ -1,5 +1,9 @@
-C:\Users\akonst\eclipse-workspace-test\Phishing\src\main\java\org\phish\model\User.java
-C:\Users\akonst\eclipse-workspace-test\Phishing\src\main\java\org\phish\controller\UserController.java
-C:\Users\akonst\eclipse-workspace-test\Phishing\src\main\java\org\phish\service\UserService.java
-C:\Users\akonst\eclipse-workspace-test\Phishing\src\main\java\org\phish\dao\UserDAO.java
-C:\Users\akonst\eclipse-workspace-test\Phishing\src\main\java\org\phish\helper\MySimpleUrlAuthenticationSuccessHandler.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\Role.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\controller\UserController.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\User.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\service\UserService.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\dao\UserDAO.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\helper\MySimpleUrlAuthenticationSuccessHandler.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\UserDetails.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\service\UserDetailsService.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\dao\UserDetailsDAO.java
