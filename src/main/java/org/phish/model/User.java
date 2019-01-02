@@ -28,16 +28,19 @@ public class User {
 	@Column(name="password")
 	 String password;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	 Role role;
+
+
+	@ManyToOne
+	@JoinColumn(name="role_id")
+	private Role role;
+	
 	
 
 	/*@OneToOne(mappedBy="user",cascade = { CascadeType.ALL })
 	UserDetails userDetails;*/
 	
-	/*  @ManyToOne(cascade = CascadeType.ALL)
-	    @JoinColumn(name="role_id")
-	     Role role;*/
+	
+	     
 	
 	
 	
@@ -75,6 +78,8 @@ public class User {
 	public Role getRole() {
 		return role;
 	}
+
+
 
 	public void setRole(Role role) {
 		this.role = role;

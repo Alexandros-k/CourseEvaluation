@@ -1,5 +1,8 @@
 package org.phish.model;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -8,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -25,15 +29,14 @@ public class Role {
 	 String role;
 	
 
-	/*@OneToMany(mappedBy="role")
-	Set<User>user;*/
+	@OneToMany(mappedBy="role")
+	Set<User> user = new HashSet<User>();
 
 
 	public Role() {
 		super();
 	}
 
-	
 
 	public int getId() {
 		return id;
@@ -55,7 +58,7 @@ public class Role {
 	}
 
 
-	/*public Set<User> getUser() {
+	public Set<User> getUser() {
 		return user;
 	}
 
@@ -63,7 +66,15 @@ public class Role {
 	public void setUser(Set<User> user) {
 		this.user = user;
 	}
-	*/
+
+
+
+
+	
+
+
+
+	
 	
 	
 }

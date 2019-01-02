@@ -52,6 +52,8 @@ public class UserController {
 	@RequestMapping(value="/addProfessor", method = RequestMethod.GET)
 	public String RedirectToAddUser(Model model) {
 		
+		
+		
 		model.addAttribute("user",new User());
 		
 		return "addProfessor" ;		
@@ -61,6 +63,12 @@ public class UserController {
 	
 	@RequestMapping(value = "/test",method = RequestMethod.POST,headers = "Accept=application/json")
 	public String addUser(@ModelAttribute("user")User user) {
+		if(user.getRole().getRole().equals("user")) {
+			user.getRole().setId(2);
+		}else if(user.getRole().getRole().equals("admin")) {
+			user.getRole().setId(1);
+			}
+		
 		
 		userService.addUser(user);
 		//userDetailsService.addUserDetails(user.getUserDetails());

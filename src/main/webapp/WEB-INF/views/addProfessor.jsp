@@ -20,7 +20,7 @@
 <tr><td>Username:<form:input path="username"></form:input></td></tr>
 <tr><td>Password:<form:input path="password"></form:input></td></tr>
 
-<tr><td>Role:<form:input path="role.id"></form:input></td></tr>
+<tr><td>Role:<form:input path="role.role"></form:input></td></tr>
 
 
 <tr><td><input type="submit"/></td></tr>
