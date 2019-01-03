@@ -35,12 +35,6 @@ public class UserDetails {
 	public UserDetails() {
 		super();
 	}
-	
-	
-
-
-
-
 
 	public int getId() {
 		return id;

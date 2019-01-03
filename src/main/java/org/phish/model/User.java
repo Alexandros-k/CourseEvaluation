@@ -36,11 +36,8 @@ public class User {
 	
 	
 
-	/*@OneToOne(mappedBy="user",cascade = { CascadeType.ALL })
-	UserDetails userDetails;*/
-	
-	
-	     
+    @OneToOne(mappedBy="user",cascade = { CascadeType.ALL })
+	UserDetails userDetails;	     
 	
 	
 	
@@ -85,13 +82,13 @@ public class User {
 		this.role = role;
 	}
 
-	/*public UserDetails getUserDetails() {
+	public UserDetails getUserDetails() {
 		return userDetails;
 	}
 
 	public void setUserDetails(UserDetails userDetails) {
 		this.userDetails = userDetails;
-	}*/
+	}
 
 	
 

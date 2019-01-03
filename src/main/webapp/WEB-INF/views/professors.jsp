@@ -32,8 +32,8 @@
 
 <tr>
 <td width="80">${user.id}</td>
-<%-- <td width="80">${user.userDetails.firstName}</td>
-<td width="80">${user.userDetails.lastName}</td> --%>
+<td width="80">${user.userDetails.firstName}</td>
+<td width="80">${user.userDetails.lastName}</td> 
 <td width="80">${user.username}</td>
 <td width="80">${user.password}</td>
 <td width="80">${user.role.role}</td>
