@@ -62,13 +62,7 @@ public class UserController {
 	
 	
 	@RequestMapping(value = "/test",method = RequestMethod.POST,headers = "Accept=application/json")
-	public String addUser(@ModelAttribute("user")User user) {
-		if(user.getRole().getRole().equals("user")) {
-			user.getRole().setId(2);
-		}else if(user.getRole().getRole().equals("admin")) {
-			user.getRole().setId(1);
-			}
-		
+	public String addUser(@ModelAttribute("user")User user) {		
 		
 		userService.addUser(user);
 		//userDetailsService.addUserDetails(user.getUserDetails());
@@ -78,7 +72,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/updateUser/test",method = RequestMethod.POST,headers = "Accept=application/json")
-	public String updateUser(@ModelAttribute("user")User user) {
+	public String updateUser(@ModelAttribute("user")User user) {		
 		
 		userService.editUder(user);
 		

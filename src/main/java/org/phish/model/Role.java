@@ -29,8 +29,8 @@ public class Role {
 	 String role;
 	
 
-	@OneToMany(mappedBy="role")
-	Set<User> user = new HashSet<User>();
+/*	@OneToMany(mappedBy="role")
+	Set<User> user = new HashSet<User>();*/
 
 
 	public Role() {
@@ -58,14 +58,14 @@ public class Role {
 	}
 
 
-	public Set<User> getUser() {
+	/*public Set<User> getUser() {
 		return user;
 	}
 
 
 	public void setUser(Set<User> user) {
 		this.user = user;
-	}
+	}*/
 
 
 
