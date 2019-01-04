@@ -15,8 +15,12 @@
         <logout logout-url="/static/j_spring_security_logout"
          logout-success-url="/login" invalidate-session="true"/>
         <csrf disabled="true"/>
+           <session-management invalid-session-url="/logout.html">
+    <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+</session-management>
     </http> 
-     
+    
+   
  
      
     <authentication-manager>  
