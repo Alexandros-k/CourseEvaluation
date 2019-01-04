@@ -15,6 +15,7 @@
 </tr>
 <tr>
 <tr><td><form:hidden path="id"/></td></tr>
+<tr><td><form:hidden path="userDetails.id"/></td></tr>
 <tr><td>First Name:<form:input path="userDetails.firstName"></form:input></td></tr>
 <tr><td>Last Name:<form:input path="userDetails.lastName"></form:input></td></tr>
 <tr><td>Username:<form:input path="username"></form:input></td></tr>
