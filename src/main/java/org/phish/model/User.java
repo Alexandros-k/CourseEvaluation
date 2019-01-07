@@ -1,5 +1,9 @@
 package org.phish.model;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -30,7 +35,7 @@ public class User {
 	
 
 
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name="role_id")
 	private Role role;
 	
@@ -39,8 +44,9 @@ public class User {
     @OneToOne(mappedBy="user",cascade = { CascadeType.ALL })
 	UserDetails userDetails;	     
 	
-	
-	
+	@OneToMany(mappedBy="user",fetch = FetchType.EAGER,cascade = { CascadeType.ALL })	
+	List<Course> course;
+
 	public User() {
 		super();
 	}
@@ -90,8 +96,29 @@ public class User {
 		this.userDetails = userDetails;
 	}
 
+
+
+	public List<Course> getCourse() {
+		return course;
+	}
+
+
+
+	public void setCourse(List<Course> course) {
+		this.course = course;
+	}
+
 	
 
+/*	public Set<Course> getCourse() {
+		return course;
+	}
+
+
+
+	public void setCourse(Set<Course> course) {
+		this.course = course;
+	}*/
 	
 	
 	
