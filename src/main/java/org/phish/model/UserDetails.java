@@ -1,5 +1,7 @@
 package org.phish.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,32 +17,34 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="USERDETAILS")
-public class UserDetails {
+public class UserDetails implements  Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	 int id;	
+	private Integer id;	
 
 	@Column(name="firstname")
-	 String firstName;
+	private String firstName;
 	
 	@Column(name="lastname")
-	 String lastName;
+	private String lastName;
 	
 	@OneToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name="id")
-	 User user;
+	private User user;
 	 
 	public UserDetails() {
 		super();
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

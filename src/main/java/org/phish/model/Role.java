@@ -1,5 +1,6 @@
 package org.phish.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -18,18 +19,20 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ROLE")
-public class Role {
-	
+public class Role implements  Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	 int id;
+	private Integer id;
 	
 	@Column(name="role")
-	 String role;
+	private String role;
 	
 
-/*	@OneToMany(mappedBy="role")
+	/*@OneToMany(mappedBy="role")
 	Set<User> user = new HashSet<User>();*/
 
 
@@ -38,12 +41,12 @@ public class Role {
 	}
 
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -65,16 +68,7 @@ public class Role {
 
 	public void setUser(Set<User> user) {
 		this.user = user;
-	}*/
+	}
+*/
 
-
-
-
-	
-
-
-
-	
-	
-	
 }

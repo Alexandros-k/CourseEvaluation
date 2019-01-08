@@ -35,13 +35,13 @@ public class UserDAO {
 
 	public void addUser(User user) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(user);
+		session.save(user);
 		
 	}
 
 	public void updateUser(User user) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(user);
+		session.merge(user);
 		
 	}
 

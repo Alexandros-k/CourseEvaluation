@@ -63,8 +63,23 @@ public class UserController {
 	
 	@RequestMapping(value = "/test",method = RequestMethod.POST,headers = "Accept=application/json")
 	public String addUser(@ModelAttribute("user")User user) {		
+		if(user.getCourses()!=null) {
+			user.getCourses().get(0).setUser(user);
+			
+		}
+		
 		
 		userService.addUser(user);
+		
+		// find course
+		// if not exist create course
+		// user.getCourses.add the course
+		// save again the user
+		
+		// userdetails
+		//course
+		
+		
 		//userDetailsService.addUserDetails(user.getUserDetails());
 		
 		return "redirect:/professorsPage";

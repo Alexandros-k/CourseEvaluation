@@ -1,5 +1,9 @@
 package org.phish.model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,49 +13,48 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name="USERS")
-public class User {
+public class User implements  Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	 int id;
+	@GeneratedValue
+	private Integer id;
 
 	@Column(name="username")
-	 String username;
+	private String username;
 	
 	@Column(name="password")
-	 String password;
-	
-
+	private String password;
 
 	@ManyToOne
 	@JoinColumn(name="role_id")
 	private Role role;
-	
-	
 
     @OneToOne(mappedBy="user",cascade = { CascadeType.ALL })
-	UserDetails userDetails;	     
+    private UserDetails userDetails;	     
 	
+	@OneToMany(mappedBy="user",cascade = { CascadeType.ALL },fetch = FetchType.EAGER)	
+	private List<Course> courses = new ArrayList<Course>();   
 	
 	
 	public User() {
 		super();
 	}
 
-	
-
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -90,13 +93,12 @@ public class User {
 		this.userDetails = userDetails;
 	}
 
-	
+	public List<Course> getCourses() {
+		return courses;
+	}
 
-	
-	
-	
-	
-	
-	
-	
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
+
 }
