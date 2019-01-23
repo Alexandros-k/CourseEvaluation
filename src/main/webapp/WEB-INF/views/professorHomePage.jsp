@@ -9,6 +9,18 @@
 </head>
 <body>
 <h1>Welcome ${firstname}</h1><br>
+
+
+
+	<form method="POST" action="uploadFile" enctype="multipart/form-data">
+		File to upload: <input type="file" name="file"><br /> 
+		Name: <input type="text" name="name"><br /> <br /> 
+		<input type="submit" value="Upload"> Press here to upload the file!
+	</form>
+	
+
+
+
 <a href="<c:url value="/static/j_spring_security_logout"/>">Logout</a>
 </body>
 </html>
