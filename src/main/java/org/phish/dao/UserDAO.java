@@ -56,7 +56,7 @@ public class UserDAO {
 	
 	public String getUser(String username) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Query q = session.createQuery("select u.firstName from User as u where u.username = :username");//Otan exeis hql grafeis ta onomata opws einai sto model kai oxi stin db
+		Query q = session.createQuery("select ud.firstName from UserDetails ud, User u where ud.id= u.id and u.username = :username");//Otan exeis hql grafeis ta onomata opws einai sto model kai oxi stin db
 		q.setString("username",username );
 		String userList = (String) q.uniqueResult();
 		return userList;
