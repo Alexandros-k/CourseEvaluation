@@ -25,7 +25,7 @@
 		<beans:property name="url"
 			value="jdbc:mysql://localhost:3306/onetomanyrole" />
 		<beans:property name="username" value="root" />
-		<beans:property name="password" value="root" />
+		<beans:property name="password" value="" />
 	</beans:bean>
 
 	<!-- Hibernate 4 SessionFactory Bean definition -->
@@ -38,6 +38,9 @@
 				<beans:value>org.phish.model.Role</beans:value>
 				<beans:value>org.phish.model.UserDetails</beans:value>
 				<beans:value>org.phish.model.Course</beans:value>
+				<beans:value>org.phish.model.Syllabus</beans:value>
+				<beans:value>org.phish.model.Verb</beans:value>
+				<beans:value>org.phish.model.Attribute</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">

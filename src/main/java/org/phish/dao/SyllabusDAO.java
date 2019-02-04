@@ -2,17 +2,16 @@ package org.phish.dao;
 
 import java.util.List;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.phish.model.User;
+import org.phish.model.Syllabus;
+import org.phish.model.Verb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class UserDAO {
+public class SyllabusDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -21,12 +20,20 @@ public class UserDAO {
 		sessionFactory = sf;
 	}
 	
-	public List<User> getAllUsers() {
+	public List<Verb> getAllVerbs() {
 		Session session = this.sessionFactory.getCurrentSession();		
-		List<User> userList = session.createQuery("From User").list();
-		return userList;
+		List<Verb> verbList = session.createQuery("From Verb").list();
+		return verbList;
 	}
 	
+	public void addSyllabus(Syllabus syllabus) {
+		Session session = this.sessionFactory.getCurrentSession();
+				
+			session.save(syllabus);	
+		}
+		
+	
+	/*
 	public User getUser(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		User user = (User)session.get(User.class,new Integer(id));
@@ -56,11 +63,13 @@ public class UserDAO {
 	
 	public String getUser(String username) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Query q = session.createQuery("select ud.firstName from UserDetails ud, User u where ud.id= u.id and u.username = :username");//Otan exeis hql grafeis ta onomata opws einai sto model kai oxi stin db
+		Query q = session.createQuery("select u.username from User as u where u.username = :username");//Otan exeis hql grafeis ta onomata opws einai sto model kai oxi stin db
 		q.setString("username",username );
 		String userList = (String) q.uniqueResult();
 		return userList;
 	}
+
+	*/
 
 
 }
