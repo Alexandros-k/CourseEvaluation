@@ -3,20 +3,40 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
-
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 <title>Welcome</title>
+ <spring:url value="/resources/bootstrap-4.0.0-dist/css/bootstrap.css" var="bootstrapCss" /> 
+ <link rel="stylesheet" href="${bootstrapCss}">
+ 
+  <spring:url value="/resources/bootstrap-4.0.0-dist/js/bootstrap.js" var="bootstrapJs" /> 
+ <link rel="stylesheet" href="${bootstrapJs}">
+
 </head>
 <body>
 
-<table>
-<tr>
-<th>professors</th>
-<th><a href = "<c:url value = "addProfessor"/>">create professor</a></th>
-</tr>
+<nav class="navbar navbar-expand-xl bg-dark navbar-dark">
 
-</table>
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="<c:url value = ""/>"> professors</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<c:url value = "addProfessor"/>">create Professor</a>
+    </li>    
+  </ul>
+
+</nav>
+
+<div class="container">
+
+
+
+
+
+
 <c:if test="${!empty listOfUsers}">
-<table>
+<table class="table table-hover">
 <tr>
 		<th width="80">Id</th>
 		<th width="120">firstname</th>
@@ -40,8 +60,10 @@
 <td width="80">${user.role.role}</td>
 <td width="80">${user.courses[0].name}</td>
 
-<td><a href="<c:url value ='/updateUser/${user.id}'/>">Edit</a></td>
-<td><a href="<c:url value ='/deleteUser/${user.id}'/>">Delete</a></td>
+<td><a type="button" class="btn btn-primary" 
+href="<c:url value ='/updateUser/${user.id}'/>">Edit</a></td>
+<td><a type="button" class="btn btn-danger" 
+href="<c:url value ='/deleteUser/${user.id}'/>">Delete</a></td>
 </tr>
 </c:forEach>
 </table>
@@ -53,5 +75,10 @@
 
 
 <a href="<c:url value="/admin"/>">return to main page</a>
+</div>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ -->
 </body>
 </html>
