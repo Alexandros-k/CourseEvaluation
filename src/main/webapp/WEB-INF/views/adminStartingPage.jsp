@@ -28,11 +28,15 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="<c:url value = ""/>">statistics</a>
-    </li>
-     <li class="nav-item">
-      <a class="nav-link" href="<c:url value = " static/j_spring_security_logout"/>">logout</a>
-    </li>
+    </li>     
   </ul>
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="static/j_spring_security_logout">logout</a>
+            </li>            
+        </ul>
+    </div>
 
 </nav>
 
