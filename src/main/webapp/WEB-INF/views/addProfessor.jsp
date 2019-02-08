@@ -4,12 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
- <spring:url value="/resources/bootstrap-4.0.0-dist/css/bootstrap.css" var="bootstrapCss" /> 
+<spring:url value="/webjars/bootstrap/css/bootstrap.min.css" var="bootstrapCss" /> 
  <link rel="stylesheet" href="${bootstrapCss}">
  
-  <spring:url value="/resources/bootstrap-4.0.0-dist/js/bootstrap.js" var="bootstrapJs" /> 
+  <spring:url value="/webjars/bootstrap/js/bootstrap.min.js" var="bootstrapJs" /> 
  <link rel="stylesheet" href="${bootstrapJs}">
 
 </head>
