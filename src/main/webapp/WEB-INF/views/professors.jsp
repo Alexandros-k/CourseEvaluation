@@ -3,14 +3,11 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-<title>Welcome</title>
- <spring:url value="/resources/bootstrap-4.0.0-dist/css/bootstrap.css" var="bootstrapCss" /> 
- <link rel="stylesheet" href="${bootstrapCss}">
- 
-  <spring:url value="/resources/bootstrap-4.0.0-dist/js/bootstrap.js" var="bootstrapJs" /> 
- <link rel="stylesheet" href="${bootstrapJs}">
 
+<title>Welcome</title>
+<link rel="stylesheet" href="<c:url value="/webjars/bootstrap/css/bootstrap.css"/> ">
+
+ <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/js/bootstrap.js"/>">
 </head>
 <body>
 

@@ -31,6 +31,12 @@ public class SyllabusDAO {
 				
 			session.save(syllabus);	
 		}
+
+	public List<Syllabus> getAllSyllabus() {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Syllabus> SyllabusList = session.createQuery("From Syllabus").list();
+		return SyllabusList;
+	}
 		
 	
 	/*

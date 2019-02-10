@@ -9,6 +9,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +34,7 @@ private static final long serialVersionUID = 1L;
 	@Column(name="syllabus_name")
 	private String syllabusName;	
 
-	@ManyToMany(cascade = { CascadeType.ALL })
+	@ManyToMany(cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
     @JoinTable(
         name = "syllabus_verb", 
         joinColumns = { @JoinColumn(name = "syllabus_id") }, 

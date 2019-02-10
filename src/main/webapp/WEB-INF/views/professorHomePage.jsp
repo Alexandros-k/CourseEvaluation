@@ -6,19 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  
- -->
- <spring:url value="/resources/bootstrap-4.0.0-dist/css/bootstrap.css" var="bootstrapCss" /> 
- <link rel="stylesheet" href="${bootstrapCss}">
- 
-  <spring:url value="/resources/bootstrap-4.0.0-dist/js/bootstrap.js" var="bootstrapJs" /> 
- <link rel="stylesheet" href="${bootstrapJs}">
- 
-<spring:url value="/resources/testingCss.css" var="testingCss1" /><!-- this is from resources local files  -->
-<link href="${testingCss1}" rel="stylesheet" />
+<link rel="stylesheet" href="<c:url value="/webjars/bootstrap/css/bootstrap.css"/> ">
 
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+ <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/js/bootstrap.js"/>">
+
 </head>
 <body>
 <nav class="navbar navbar-expand-xl bg-dark navbar-dark">

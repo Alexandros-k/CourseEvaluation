@@ -4,14 +4,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
- <spring:url value="/resources/bootstrap-4.0.0-dist/css/bootstrap.css" var="bootstrapCss" /> 
- <link rel="stylesheet" href="${bootstrapCss}">
- 
-  <spring:url value="/resources/bootstrap-4.0.0-dist/js/bootstrap.js" var="bootstrapJs" /> 
- <link rel="stylesheet" href="${bootstrapJs}">
+ <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/css/bootstrap.css"/> ">
 
+ <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/js/bootstrap.js"/>">
 
 </head>
 <body>
@@ -27,7 +23,7 @@
       <a class="nav-link" href="<c:url value = ""/>">modules</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<c:url value = ""/>">statistics</a>
+      <a class="nav-link" href="<c:url value = "statistics"/>">statistics</a>
     </li>     
   </ul>
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
@@ -60,5 +56,6 @@ access="isAuthenticated() and principal.username=='prof'">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  -->
+ 
 </body>
 </html>

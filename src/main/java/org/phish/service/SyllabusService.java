@@ -27,6 +27,12 @@ public class SyllabusService{
 		return syllabusDAO.getAllVerbs();
 	}
 
+	@Transactional
+	public List<Syllabus> getAllSyllabus() {
+		return syllabusDAO.getAllSyllabus();
+		
+	}
+
 
 
 

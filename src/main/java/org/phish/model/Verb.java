@@ -30,7 +30,7 @@ public class Verb implements Serializable {
 	@Column(name="name")
 	private String name;
 
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name="attribute_id")
 	private Attribute attribute;
 
