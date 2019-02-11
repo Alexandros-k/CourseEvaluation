@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/css/bootstrap.css"/> ">
 
  <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/js/bootstrap.js"/>">
-
 </head>
 <body>
 <div class="container">

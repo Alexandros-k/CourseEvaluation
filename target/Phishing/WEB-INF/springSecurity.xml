@@ -12,7 +12,7 @@
        <!--  <intercept-url pattern="/index" access="hasRole('ROLE_ADMIN')" />
            <intercept-url pattern="/professorHomePage" access="hasRole('ROLE_USER')" />  -->
           <form-login authentication-success-handler-ref="authSuccessHandler" />
-           <!-- <form-login  login-page="/login"  authentication-success-handler-ref="authSuccessHandler"/>       -->      
+                 
         <logout logout-url="/static/j_spring_security_logout"
          logout-success-url="/login" invalidate-session="true"/>
         <csrf disabled="true"/>
