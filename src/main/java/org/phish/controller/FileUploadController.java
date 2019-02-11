@@ -28,7 +28,6 @@ public class FileUploadController {
 	public @ResponseBody
 	String uploadFileHandler(@RequestParam("name") String name,
 			@RequestParam("file") MultipartFile file) {
-
 		if (!file.isEmpty()) {
 			try {
 				byte[] bytes = file.getBytes();
@@ -37,10 +36,12 @@ public class FileUploadController {
 				String rootPath = System.getProperty("catalina.home");
 				/*File dir = new File(rootPath + File.separator + "temp");*/
 			
-				String filename = rootPath + File.separator + "tmpFiles" ;
-				File dir = new File(filename);
-				/*File dir = new File(rootPath + File.separator + "tmpFiles");
-				if (!dir.exists())
+			//	String filename = rootPath + File.separator + "tmpFiles" ;
+				//File dir = new File("C:\\ProfessoruploadSyllabus\\syllabus");
+				//File dir = new File(filename);
+				File dir = new File(rootPath + File.separator + "tmpFiles");
+				/*
+				if (!dir.exists())*/
 					dir.mkdirs();
 
 				// Create the file on server
@@ -53,6 +54,7 @@ public class FileUploadController {
 
 			/*	logger.info("Server File Location="
 						+ serverFile.getAbsolutePath());*/
+
 
 				return "You successfully uploaded file=" + name;
 			} catch (Exception e) {

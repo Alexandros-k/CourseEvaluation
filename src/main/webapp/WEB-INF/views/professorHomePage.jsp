@@ -39,7 +39,7 @@
 
 	<form method="POST" action="uploadFile" enctype="multipart/form-data">
 	
-		File to upload:<input type="file" class="form-control-file" id="exampleFormControlFile1">
+		File to upload:<input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
 		
 		
 		Name: <input type="text" name="name" class="form-control"><br /> 
@@ -59,7 +59,10 @@
 <th>submit Syllabus</th>
 </tr>
 
-
+<tr>
+<hi1>choose name of course to process</hi1></br>
+Name: <input type="text" name="courseName" class="form-control"><br />
+</tr>
 <tr><td><input type="submit"  class="btn btn-primary"/></td></tr>
 
 
