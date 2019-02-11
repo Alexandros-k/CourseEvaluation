@@ -2,8 +2,9 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-<link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="<c:url value="/webjars/bootstrap/css/bootstrap.css"/> ">
+
+ <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/js/bootstrap.js"/>">
 </head>
 <body>
 <h2>Hello World!</h2>
