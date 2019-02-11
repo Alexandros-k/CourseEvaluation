@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+				xmlns:mvc="http://www.springframework.org/schema/mvc"
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			 xmlns:beans="http://www.springframework.org/schema/beans"
+		    xmlns:context="http://www.springframework.org/schema/context"
+	 		xmlns:tx="http://www.springframework.org/schema/tx"
+			xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
@@ -11,6 +14,11 @@
 
 	<resources mapping="/resources/**" location="/resources/" />
 
+	<resources mapping="webjars/**" location="/webjars/">
+		<resource-chain resource-cache="false"/>
+	</resources>
+	
+	
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -19,15 +27,31 @@
 	
 <context:component-scan base-package="org.phish" />
 
-	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	 <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url"
 			value="jdbc:mysql://localhost:3306/onetomanyrole" />
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="" />
-	</beans:bean>
+	</beans:bean> 
+	
 
+
+<!-- this works
+<beans:bean class="java.net.URI" id="dbUrl">
+    <beans:constructor-arg value="mysql://bd7795db5bd242:9601c3d0@eu-cdbr-west-02.cleardb.net/heroku_ddeeadabf97c6ca?reconnect=true"/>
+</beans:bean>
+
+<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <beans:property name="url" value="#{ 'jdbc:mysql://' + @dbUrl.getHost() + @dbUrl.getPath() }"/>
+    <beans:property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
+    <beans:property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+</beans:bean>
+
+
+
+ -->
 	<!-- Hibernate 4 SessionFactory Bean definition -->
 	<beans:bean id="hibernate4AnnotatedSessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -36,6 +60,11 @@
 			<beans:list>			
 				<beans:value>org.phish.model.User</beans:value>
 				<beans:value>org.phish.model.Role</beans:value>
+				<beans:value>org.phish.model.UserDetails</beans:value>
+				<beans:value>org.phish.model.Course</beans:value>
+				<beans:value>org.phish.model.Syllabus</beans:value>
+				<beans:value>org.phish.model.Verb</beans:value>
+				<beans:value>org.phish.model.Attribute</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -43,6 +72,7 @@
 				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
 				</beans:prop>
 				<beans:prop key="hibernate.show_sql">true</beans:prop>
+				<beans:prop key="hibernate.format_sql">true</beans:prop>
 			</beans:props>
 		</beans:property>
 	</beans:bean>
@@ -55,6 +85,16 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<beans:property name="sessionFactory"
 			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	
+	
+	
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		 <!-- setting maximum upload size -->
+		<beans:property name="maxUploadSize" value="100000" />
+
 	</beans:bean>
 
 

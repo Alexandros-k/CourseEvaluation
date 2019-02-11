@@ -26,41 +26,18 @@
 	</beans:bean>
 	
 <context:component-scan base-package="org.phish" />
-
-	<!-- <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+<!-- 
+	 <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url"
 			value="jdbc:mysql://localhost:3306/onetomanyrole" />
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="" />
-	</beans:bean> -->
+	</beans:bean> 
 	
-<!-- 	<beans:bean class="java.net.URI" id="dbUrl">
-    <beans:constructor-arg value="#{systemEnvironment['DATABASE_URL']}"/>
-</beans:bean>
 
-<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-    <beans:property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
-    <beans:property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
-    <beans:property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
-</beans:bean>
-	 -->
-	
-	<!-- 	<beans:bean class="java.net.URI" id="dbUrl">
-    <beans:constructor-arg value="mysql://bd7795db5bd242:9601c3d0@eu-cdbr-west-02.cleardb.net/heroku_ddeeadabf97c6ca?reconnect=true"/>
-</beans:bean> -->
-
-
-
-<!-- 
-<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-    <beans:property name="url" value="jdbc:mysql//eu-cdbr-west-02.cleardb.net:3306/heroku_ddeeadabf97c6ca"/>
-    <beans:property name="username" value="bd7795db5bd242"/>
-    <beans:property name="password" value="9601c3d0"/>
-</beans:bean> -->
-
+ -->
 
 <beans:bean class="java.net.URI" id="dbUrl">
     <beans:constructor-arg value="mysql://bd7795db5bd242:9601c3d0@eu-cdbr-west-02.cleardb.net/heroku_ddeeadabf97c6ca?reconnect=true"/>
@@ -71,7 +48,6 @@
     <beans:property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
     <beans:property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
 </beans:bean>
-
 
 
 

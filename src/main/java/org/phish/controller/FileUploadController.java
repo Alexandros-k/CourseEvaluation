@@ -40,7 +40,7 @@ public class FileUploadController {
 				String filename = rootPath + File.separator + "tmpFiles" ;
 				File dir = new File(filename);
 				/*File dir = new File(rootPath + File.separator + "tmpFiles");
-				if (!dir.exists())*/
+				if (!dir.exists())
 					dir.mkdirs();
 
 				// Create the file on server

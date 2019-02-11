@@ -29,15 +29,15 @@
 	</tr>
 
 <c:forEach items="${SyllabusList}" var="syllabus">
-
+ <c:set var="count" value="0"/>
 <tr>
 <td width="80">${syllabus.id}</td>
 <td width="80">${syllabus.name}</td>
+<td width="80">${VerbList} </td>
+<%-- <c:forEach items="${VerbList}" var="syll">
 
-<c:forEach items="${VerbList}" var="syll">
-
-  <td>${syll.key} ${syll.value}</td>
-</c:forEach>
+<td></br>${syll.key} ${syll.value}</br></td>
+</c:forEach> --%>
 
 </tr>
 </c:forEach>
