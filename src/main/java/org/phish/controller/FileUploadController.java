@@ -36,9 +36,12 @@ public class FileUploadController {
 				// Creating the directory to store file
 				String rootPath = System.getProperty("catalina.home");
 				/*File dir = new File(rootPath + File.separator + "temp");*/
-				
-				File dir = new File("C:\\ProfessoruploadSyllabus\\syllabus");
-				/*File dir = new File(rootPath + File.separator + "tmpFiles");
+			
+			//	String filename = rootPath + File.separator + "tmpFiles" ;
+				//File dir = new File("C:\\ProfessoruploadSyllabus\\syllabus");
+				//File dir = new File(filename);
+				File dir = new File(rootPath + File.separator + "tmpFiles");
+				/*
 				if (!dir.exists())*/
 					dir.mkdirs();
 

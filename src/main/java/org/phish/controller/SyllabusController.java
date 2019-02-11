@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SyllabusController {
@@ -31,7 +32,7 @@ public class SyllabusController {
 	
 	
 	@RequestMapping(value = "/addSyllabus",method = RequestMethod.POST,headers = "Accept=application/json")
-	public  String addSyllabus() throws FileNotFoundException {		
+	public  String addSyllabus(@RequestParam("courseName") String courseName) throws FileNotFoundException {		
 	/*	verbNames.add("define");
 		verbNames.add("describe");
 		verbNames.add("label");
@@ -45,12 +46,12 @@ public class SyllabusController {
 		FileSearch fileSearch = new FileSearch();
 		
 		String rootPath = System.getProperty("catalina.home");
-		String filename = rootPath + File.separator + "tmpFiles" ;
+		String filename = rootPath + File.separator + "tmpFiles" + File.separator + courseName ;
 		
 		 String file="C:\\ProfessoruploadSyllabus\\syllabus\\dasa";
 		
 		
-	 List<String> verbNames = fileSearch.parseFile(file, listOfVerbs);
+	 List<String> verbNames = fileSearch.parseFile(filename, listOfVerbs);
 		
 		for (String lucentVerb : verbNames) {
 			for (Verb verb : listOfVerbs) {
@@ -61,7 +62,7 @@ public class SyllabusController {
 			}			
 		}
 		
-		Syllabus javaSullabus = new Syllabus("python",newVerbNames);
+		Syllabus javaSullabus = new Syllabus(courseName,newVerbNames);
 		
 		
 		syllabusService.addsyllabus(javaSullabus);
