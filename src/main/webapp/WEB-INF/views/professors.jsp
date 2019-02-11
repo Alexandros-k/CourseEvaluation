@@ -4,7 +4,6 @@
 <html>
 <head>
 
-<title>Welcome</title>
 <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/css/bootstrap.css"/> ">
 
  <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/js/bootstrap.js"/>">
