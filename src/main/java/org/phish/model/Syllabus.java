@@ -37,8 +37,7 @@ private static final long serialVersionUID = 1L;
 	@ManyToMany(cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
     @JoinTable(
         name = "syllabus_verb", 
-        joinColumns = { @JoinColumn(name = "syllabus_id") }, 
-        inverseJoinColumns = { @JoinColumn(name = "verb_id") }
+        joinColumns = { @JoinColumn(name = "syllabus_id") }/*,         inverseJoinColumns = { @JoinColumn(name = "verb_id")}*/ 
     )
 	private List<Verb>verbs = new ArrayList<Verb>();
 
