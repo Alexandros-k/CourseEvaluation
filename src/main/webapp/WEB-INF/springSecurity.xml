@@ -39,7 +39,7 @@
                      id="jdbcUserService"
                         data-source-ref="dataSource"
                     users-by-username-query="select username,password,true from users where username=?"
-            authorities-by-username-query= "select users.username,role.role from users INNER JOIN role where users.role_id=role.id and users.username=?"></jdbc-user-service>
+            authorities-by-username-query= "select users.username,role.role from users INNER JOIN role ON users.role_id=role.id whhere users.username=?"></jdbc-user-service>
     
     <beans:bean id="authSuccessHandler" class="org/phish/helper/MySimpleUrlAuthenticationSuccessHandler" />
   
