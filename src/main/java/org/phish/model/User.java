@@ -26,7 +26,7 @@ public class User implements  Serializable{
 
 	@Id
 	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	private Integer id;
 
 	@Column(name="username")
@@ -35,10 +35,7 @@ public class User implements  Serializable{
 	@Column(name="password")
 	private String password;
 
-	@ManyToOne(cascade = {
-		    CascadeType.PERSIST,
-		    CascadeType.MERGE
-		})
+	@ManyToOne
 	@JoinColumn(name="role_id")
 	private Role role;
 

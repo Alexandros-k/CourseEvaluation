@@ -24,7 +24,7 @@ public class Course implements Serializable {
 
 	@Id
 	@Column(name="course_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	private Integer id;
 	
 	@Column(name="course_name")
