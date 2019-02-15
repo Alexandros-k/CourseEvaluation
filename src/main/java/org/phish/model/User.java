@@ -35,7 +35,10 @@ public class User implements  Serializable{
 	@Column(name="password")
 	private String password;
 
-	@ManyToOne
+	@ManyToOne(cascade = {
+		    CascadeType.PERSIST,
+		    CascadeType.MERGE
+		})
 	@JoinColumn(name="role_id")
 	private Role role;
 
