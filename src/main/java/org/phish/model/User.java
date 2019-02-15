@@ -39,7 +39,7 @@ public class User implements  Serializable{
 	@JoinColumn(name="role_id")
 	private Role role;
 
-    @OneToOne(mappedBy="user")
+    @OneToOne(mappedBy="user",cascade = { CascadeType.ALL})
     private UserDetails userDetails;	     
 	
 	@OneToMany(mappedBy="user",cascade = { CascadeType.ALL },fetch = FetchType.EAGER)	
