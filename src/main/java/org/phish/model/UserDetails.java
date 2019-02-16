@@ -31,7 +31,7 @@ public class UserDetails implements  Serializable {
 	@Column(name="lastname")
 	private String lastName;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name="id")
 	private User user;
 	 
