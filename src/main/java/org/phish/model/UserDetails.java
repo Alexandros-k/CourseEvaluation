@@ -32,7 +32,7 @@ public class UserDetails implements  Serializable {
 	@Column(name="lastname")
 	private String lastName;
 	
-	@OneToOne(cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
+	@OneToOne
 	@JoinColumn(name="id")
 	private User user;
 	 
