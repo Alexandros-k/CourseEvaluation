@@ -22,8 +22,7 @@ public class UserDetails implements  Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")	
 	private Integer id;	
 
 	@Column(name="firstname")
@@ -32,7 +31,7 @@ public class UserDetails implements  Serializable {
 	@Column(name="lastname")
 	private String lastName;
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id")
 	private User user;
 	 
