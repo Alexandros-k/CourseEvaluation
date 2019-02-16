@@ -33,7 +33,7 @@ public class UserDetails implements  Serializable {
 	private String lastName;
 	
 	@OneToOne
-	@JoinColumn(name="id")
+	@PrimaryKeyJoinColumn
 	private User user;
 	 
 	public UserDetails() {
