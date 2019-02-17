@@ -19,12 +19,12 @@
            <session-management invalid-session-url="/logout.html">
     <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
 </session-management>
-    </http> 
 
- 
-    
    
- 
+
+    </http>  
+     
+
      
     <authentication-manager>  
       <authentication-provider>  
@@ -44,24 +44,5 @@
     <beans:bean id="authSuccessHandler" class="org/phish/helper/MySimpleUrlAuthenticationSuccessHandler" />
   
 </beans:beans>  
-<!-- 
 
-   <http auto-config="true" use-expressions="true">  
-        <intercept-url pattern="/**" access="isAuthenticated()" />  
-        
-        
-        <form-login login-page='/login.html'
-      authentication-failure-url="/login.html?error=true"
-      authentication-success-handler-ref="myAuthenticationSuccessHandler"/>
-    <logout/>
-                
-        <logout logout-url="/static/j_spring_security_logout"
-         logout-success-url="/login" invalidate-session="true"/>
-        <csrf disabled="true"/>
-    </http> 
-
-    <beans:bean id="myAuthenticationSuccessHandler"
-  class="org.baeldung.security.MySimpleUrlAuthenticationSuccessHandler" />
-   
-      -->
 
