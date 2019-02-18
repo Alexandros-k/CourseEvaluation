@@ -12,11 +12,37 @@
 <title>Insert title here</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-xl bg-dark navbar-dark">
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="<c:url value = "professorsPage"/>">professors</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<c:url value = ""/>">modules</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<c:url value = "statistics"/>">statistics</a>
+    </li>     
+  </ul>
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="static/j_spring_security_logout">logout</a>
+            </li>            
+        </ul>
+    </div>
+
+</nav>
+
+<div class="container">
+
 
 <c:if test="${!empty SyllabusList}">
 <table class="table table-hover">
 <tr>
-		<th width="80">id</th>
+		
 		<th width="120">CourseName</th>
 		<th width="120">remember</th>
 		<th width="120">understand</th>
@@ -28,22 +54,35 @@
 		
 	</tr>
 
-<c:forEach items="${SyllabusList}" var="syllabus">
+<c:forEach items="${VerbList}" var="syllabus">
 
 <tr>
-<td width="80">${syllabus.id}</td>
+
 <td width="80">${syllabus.name}</td>
+<td width="80">${syllabus.remeberCounter}</td>
+<td width="80">${syllabus.understandCounter}</td>
+<td width="80">${syllabus.applyCounter}</td>
+<td width="80">${syllabus.analyzeCounter}</td>
+<td width="80">${syllabus.evaluateCounter}</td>
+<td width="80">${syllabus.createCounter}</td>
 
-<c:forEach items="${VerbList}" var="syll">
-
-  <td>${syll.key} ${syll.value}</td>
-</c:forEach>
 
 </tr>
 </c:forEach>
+<tr>
+
+<td width="80">Total</td>
+<c:forEach items="${Verb}" var="syll">
+
+  <td> ${syll.value}</td>
+</c:forEach>
+
+</tr>
 </table>
+
+
 </c:if>
 
-
+</div>
 </body>
 </html>

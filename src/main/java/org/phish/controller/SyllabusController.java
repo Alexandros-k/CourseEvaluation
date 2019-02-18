@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.phish.helper.FileSearch;
 import org.phish.model.Attribute;
+import org.phish.model.AttributeDTO;
 import org.phish.model.Syllabus;
 import org.phish.model.Verb;
 import org.phish.service.SyllabusService;
@@ -33,13 +34,7 @@ public class SyllabusController {
 	
 	@RequestMapping(value = "/addSyllabus",method = RequestMethod.POST,headers = "Accept=application/json")
 	public  String addSyllabus(@RequestParam("courseName") String courseName) throws FileNotFoundException {		
-	/*	verbNames.add("define");
-		verbNames.add("describe");
-		verbNames.add("label");
-		verbNames.add("recall");
-		verbNames.add("summarize");
-	*/
-		
+	
 		
 		List<Verb> listOfVerbs = syllabusService.getAllVerbs();		
 
@@ -75,8 +70,7 @@ public class SyllabusController {
 	@RequestMapping(value="/statistics",method = RequestMethod.GET,headers = "Accept=application/json")
 	public String getSyllabus(Model model) {
 		
-
-		
+		ArrayList<AttributeDTO> attributeList = new ArrayList<AttributeDTO>();
 		
 		hm.put("remember", 0);
 		hm.put("understand", 0);
@@ -85,41 +79,70 @@ public class SyllabusController {
 		hm.put("evaluate", 0);
 		hm.put("create", 0);
 		
+	
+		
 		List<Syllabus> syllabus =  syllabusService.getAllSyllabus();
-	for (Syllabus syllabi : syllabus) {
+		for (Syllabus syllabi : syllabus) {
+			int counter=0;		
+			attributeList.add(counter, createAttribute(syllabi));
 			
-		List<Verb> verbs =	syllabi.getVerbs();
-		
-		for (Verb verb : verbs) {
-		String attrName =	verb.getAttribute().getName();
-		
-		for(Map.Entry<String, Integer> entry : hm.entrySet()) {
-		    String attr = entry.getKey();
-		    int attrValue = entry.getValue();
-		  
-			if(attrName.equals(attr)) {
+			List<Verb> verbs =	syllabi.getVerbs();
+			for (Verb verb : verbs) {
+				String attrName =	verb.getAttribute().getName();
 				
-				
-				hm.put(attr, attrValue + 1);
-			}
-		}
-		}
+				for(Map.Entry<String, Integer> entry : hm.entrySet()) {
+				    String attr = entry.getKey();
+				    int attrValue = entry.getValue();
+				  
+					if(attrName.equals(attr)) {
+						
+						
+						hm.put(attr, attrValue + 1);
+					}
+				}
+				}
+			
 		}	
 		
 	
 			
 		model.addAttribute("SyllabusList",syllabus);
-		model.addAttribute("VerbList",hm);
+		model.addAttribute("VerbList",attributeList);
+		model.addAttribute("Verb",hm);
 		return "statistics";
 		
 		
 	}
 
 	
-	
-	
-	
+	public AttributeDTO createAttribute(Syllabus  syllabus) {
+		AttributeDTO attr = new AttributeDTO();
+		
+			
+			List<Verb> verbs =	syllabus.getVerbs();
+			
+			for (Verb verb : verbs) {
+				String attrName =	verb.getAttribute().getName();		
+				attr.setName(syllabus.getName());
+				if(attrName.equals("remember")) {
+					attr.setRemeberCounter(attr.getRemeberCounter()+1);
+				}else if(attrName.equals("understand")) {
+					attr.setUnderstandCounter(attr.getUnderstandCounter()+1);
+				}else if(attrName.equals("apply")) {
+					attr.setApplyCounter(attr.getApplyCounter()+1);
+				}else if(attrName.equals("analyze")) {
+					attr.setAnalyzeCounter(attr.getAnalyzeCounter()+1);
+				}else if(attrName.equals("Evaluate")) {
+					attr.setEvaluateCounter(attr.getEvaluateCounter()+1);
+				}else if(attrName.equals("Create")) {
+					attr.setCreateCounter(attr.getCreateCounter()+1);
+				}	
+			
+			
+				}
+							
+			
+		return attr;
+
+	}
 }
-
-
-	
