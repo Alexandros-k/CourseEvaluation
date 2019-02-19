@@ -52,7 +52,9 @@ public class SyllabusController {
 			for (Verb verb : listOfVerbs) {
 				if(lucentVerb.equals(verb.getName())) {
 					
-					newVerbNames.add(verb);					
+					if (!newVerbNames.contains(verb)) {
+						newVerbNames.add(verb);	
+					}										
 				}				
 			}			
 		}
