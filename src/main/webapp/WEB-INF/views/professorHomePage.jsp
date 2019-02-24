@@ -11,6 +11,7 @@
 
  <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/js/bootstrap.js"/>">
 
+
 </head>
 <body>
 <nav class="navbar navbar-expand-xl bg-dark navbar-dark">
@@ -18,10 +19,10 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="<c:url value = ""/>"> </a>
+      <a class="nav-link" href="<c:url value = "username"/>"> </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<c:url value = ""/>"></a>
+      <a class="nav-link" href="<c:url value = "password"/>"></a>
     </li>    
   </ul>
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
