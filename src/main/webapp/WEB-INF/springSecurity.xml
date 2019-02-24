@@ -7,14 +7,22 @@
     http://www.springframework.org/schema/security/spring-security.xsd">  
     
 
- <http auto-config="true" use-expressions="true">  
-       <intercept-url pattern="/**" access="isAuthenticated()" /> 
-       <!--  <intercept-url pattern="/index" access="hasRole('ROLE_ADMIN')" />
-           <intercept-url pattern="/professorHomePage" access="hasRole('ROLE_USER')" />  -->
-          <form-login authentication-success-handler-ref="authSuccessHandler" />
+ <http auto-config="true">  
+		<intercept-url pattern="/custom_login" access="isAnonymous()"/>
+		 <intercept-url pattern="/static/j_spring_security_check" access="isAnonymous()"/> 
+		  <intercept-url pattern="/webjars/**" access="permitAll()"/> 		
+		  <intercept-url pattern="/resources/**" access="permitAll()"/>  
+        <intercept-url pattern="/**" access="isAuthenticated()" />
+        <form-login
+        login-processing-url="/static/j_spring_security_check"
+         login-page="/custom_login"
+         username-parameter="j_username"
+			password-parameter="j_password"
+            authentication-failure-url="/custom_login?error"          
+           authentication-success-handler-ref="authSuccessHandler"/>
                  
         <logout logout-url="/static/j_spring_security_logout"
-         logout-success-url="/login" invalidate-session="true"/>
+         logout-success-url="/login" invalidate-session="true"/>       
         <csrf disabled="true"/>
            <session-management invalid-session-url="/logout.html">
     <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
