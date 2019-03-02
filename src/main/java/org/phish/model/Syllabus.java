@@ -34,7 +34,7 @@ private static final long serialVersionUID = 1L;
 	@Column(name="syllabus_name")
 	private String syllabusName;	
 
-	@ManyToMany(/*cascade = { CascadeType.ALL },*/fetch = FetchType.EAGER)
+	@ManyToMany(cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
     @JoinTable(
         name = "syllabus_verb", 
         joinColumns = { @JoinColumn(name = "syllabus_id") }, 
