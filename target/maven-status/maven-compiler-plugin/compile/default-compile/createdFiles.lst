@@ -15,5 +15,6 @@ org\phish\model\Verb.class
 org\phish\helper\MySimpleUrlAuthenticationSuccessHandler.class
 org\phish\model\Course.class
 org\phish\controller\LoginController.class
+org\phish\model\AttributeDTO.class
 org\phish\model\Syllabus.class
 org\phish\dao\UserDAO.class

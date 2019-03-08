@@ -7,11 +7,19 @@
     http://www.springframework.org/schema/security/spring-security.xsd">  
     
 
- <http auto-config="true" use-expressions="true">  
-       <intercept-url pattern="/**" access="isAuthenticated()" /> 
-       <!--  <intercept-url pattern="/index" access="hasRole('ROLE_ADMIN')" />
-           <intercept-url pattern="/professorHomePage" access="hasRole('ROLE_USER')" />  -->
-          <form-login authentication-success-handler-ref="authSuccessHandler" />
+ <http auto-config="true">  
+		<intercept-url pattern="/custom_login" access="isAnonymous()"/>
+		 <intercept-url pattern="/static/j_spring_security_check" access="isAnonymous()"/> 
+		  <intercept-url pattern="/webjars/**" access="permitAll()"/> 		
+		  <intercept-url pattern="/resources/**" access="permitAll()"/>  
+        <intercept-url pattern="/**" access="isAuthenticated()" />
+        <form-login
+        login-processing-url="/static/j_spring_security_check"
+         login-page="/custom_login"
+         username-parameter="j_username"
+password-parameter="j_password"
+            authentication-failure-url="/custom_login?error"          
+           authentication-success-handler-ref="authSuccessHandler"/>
                  
         <logout logout-url="/static/j_spring_security_logout"
          logout-success-url="/login" invalidate-session="true"/>
@@ -19,12 +27,12 @@
            <session-management invalid-session-url="/logout.html">
     <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
 </session-management>
-    </http> 
 
- 
-    
    
- 
+
+    </http>  
+     
+
      
     <authentication-manager>  
       <authentication-provider>  
@@ -33,7 +41,7 @@
 
       </authentication-provider>  
     </authentication-manager>  
-    
+        <beans:bean id="authSuccessHandler" class="org/phish/helper/MySimpleUrlAuthenticationSuccessHandler" />
             
             <jdbc-user-service
                      id="jdbcUserService"
@@ -41,27 +49,24 @@
                     users-by-username-query="select username,password,true from users where username=?"
             authorities-by-username-query= "select u.username,r.role from users u join role r where u.role_id=r.id and u.username=?"></jdbc-user-service>
     
-    <beans:bean id="authSuccessHandler" class="org/phish/helper/MySimpleUrlAuthenticationSuccessHandler" />
+
   
 </beans:beans>  
-<!-- 
-
-   <http auto-config="true" use-expressions="true">  
-        <intercept-url pattern="/**" access="isAuthenticated()" />  
-        
-        
-        <form-login login-page='/login.html'
-      authentication-failure-url="/login.html?error=true"
-      authentication-success-handler-ref="myAuthenticationSuccessHandler"/>
-    <logout/>
-                
+<!--  <http auto-config="true" use-expressions="true">  
+       <intercept-url pattern="/**" access="isAuthenticated()" /> 
+        <intercept-url pattern="/index" access="hasRole('ROLE_ADMIN')" />
+           <intercept-url pattern="/professorHomePage" access="hasRole('ROLE_USER')" /> 
+          <form-login authentication-success-handler-ref="authSuccessHandler" />
+                 
         <logout logout-url="/static/j_spring_security_logout"
          logout-success-url="/login" invalidate-session="true"/>
         <csrf disabled="true"/>
-    </http> 
+           <session-management invalid-session-url="/logout.html">
+    <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+</session-management>
 
-    <beans:bean id="myAuthenticationSuccessHandler"
-  class="org.baeldung.security.MySimpleUrlAuthenticationSuccessHandler" />
    
-      -->
+
+    </http>  --> 
+     
 

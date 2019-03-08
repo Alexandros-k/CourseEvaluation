@@ -34,21 +34,21 @@ public class SyllabusController {
 	
 	@RequestMapping(value = "/addSyllabus",method = RequestMethod.POST,headers = "Accept=application/json")
 	public  String addSyllabus(@RequestParam("courseName") String courseName) throws FileNotFoundException {		
-	
+
 		
 		List<Verb> listOfVerbs = syllabusService.getAllVerbs();		
 
 		FileSearch fileSearch = new FileSearch();
 		
 		String rootPath = System.getProperty("catalina.home");
-		String filename = rootPath + File.separator + "tmpFiles" + File.separator + courseName ;
+		String filename = rootPath + File.separator + "tmpFiles" + File.separator + courseName+".txt" ;
 		
 		 String file="C:\\ProfessoruploadSyllabus\\syllabus\\dasa";
 		
 		
 	 List<String> verbNames = fileSearch.parseFile(filename, listOfVerbs);
 		
-		for (String lucentVerb : verbNames) {
+	 for (String lucentVerb : verbNames) {
 			for (Verb verb : listOfVerbs) {
 				if(lucentVerb.equals(verb.getName())) {
 					
@@ -148,3 +148,7 @@ public class SyllabusController {
 
 	}
 }
+
+
+
+
