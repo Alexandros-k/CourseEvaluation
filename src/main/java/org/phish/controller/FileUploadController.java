@@ -20,6 +20,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,13 +46,12 @@ public class FileUploadController {
 	 * Upload single file using Spring Controller
 	 */
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-	public @ResponseBody
-	String uploadFileHandler(@RequestParam("name") String name,
-			@RequestParam("file") MultipartFile file) {
+	public String uploadFileHandler(@RequestParam("name") String name,
+			@RequestParam("file") MultipartFile file,Model model) {
 
+		String message;
 		if (!file.isEmpty()) {
-			try {
-				
+			try {	
 				
 				byte[] bytes = file.getBytes();
 
@@ -62,35 +62,32 @@ public class FileUploadController {
 				/*
 				if (!dir.exists())*/
 					dir.mkdirs();
-
+					
 				// Create the file on server
-				File serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + name);
+				File serverFile = new File(dir.getAbsolutePath()+ File.separator + name);				
 				
-				
-				
-				BufferedOutputStream stream = new BufferedOutputStream(
-						new FileOutputStream(serverFile));
-				stream.write(bytes);
-				
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+				stream.write(bytes);				
 				stream.close();
 
 			/*	logger.info("Server File Location="
-						+ serverFile.getAbsolutePath());*/
+						+ serverFile.getAbsolutePath());*/				
 				
-				//make pdf into txt file
-				PDFToTXT(name,serverFile,bytes);
+				PDFToTXT(name,serverFile,bytes);				
 				
-				//take txt file and create a new one with only learning outcomes
+				 message = "You successfully uploaded file " + name;
+				model.addAttribute("message", message);
 				
-				//TXTToTXT( name, serverFile);				 				
-				return "You successfully uploaded file=" + name;
+				return "professorHomePage";
 			} catch (Exception e) {
-				return "You failed to upload " + name + " => " + e.getMessage();
+				message = "You failed to upload " + name + " => " + e.getMessage();
+				model.addAttribute("errorMessage", message);
+				return "professorHomePage";
 			}
 		} else {
-			return "You failed to upload " + name
-					+ " because the file was empty.";
+			message ="You failed to upload " + name	+ " because the file was empty.";
+			model.addAttribute("errorMessage", message);
+			return "professorHomePage";
 		}
 		
 		
@@ -128,7 +125,7 @@ public class FileUploadController {
 		
 	}
 	
-public void PDFToTXT(String name,File file,byte[] bytes) throws IOException {
+	public void PDFToTXT(String name,File file,byte[] bytes) throws IOException {
 		
 	File f = new File(file.getAbsolutePath());
 	String parsedText;
@@ -141,34 +138,8 @@ public void PDFToTXT(String name,File file,byte[] bytes) throws IOException {
 	PDDocument pdDoc = new PDDocument(cosDoc);
 	parsedText = pdfStripper.getText(pdDoc);
 		
+	String output = spesificTXT(parsedText);
 	
-	Scanner s = null;
-	String output="";
-	try {
-        Scanner scanner = new Scanner(parsedText);
-       
-        boolean tokenFound = false;
-        while (scanner.hasNext()) {
-            String line = scanner.next();
-            //line, not scanner.
-            if (line.equals("LO1")) //tag in the txt to locate position
-            {
-                tokenFound = true;
-            } else if (line.equals("TEACHING")) {
-                tokenFound = false;
-            }
-
-            if ((tokenFound) && (!line.equals("LO1 "))) {
-                output+=line+" ";
-              
-            }
-            
-            
-        }
-      
-    } catch (Exception e) {
-        return;
-    }
 	
 	
 	PrintWriter pw = new PrintWriter(file +".txt");
@@ -177,35 +148,30 @@ public void PDFToTXT(String name,File file,byte[] bytes) throws IOException {
 	
 	}
 
+	public String spesificTXT(String parsedText) throws IOException {
+	String output="";
+	Scanner s = null;
+	
+	try {
+        Scanner scanner = new Scanner(parsedText);
+       
+        boolean tokenFound = false;
+        while (scanner.hasNext()) {
+            String line = scanner.next();
+       
+            if (line.equals("LO1")) //tag in the txt to locate position
+            {
+                tokenFound = true;
+            } else if (line.equals("TEACHING")) { tokenFound = false;}
 
-public void TXTToTXT(String name,File file) throws IOException {
-	String all="";
-/*	try (Scanner scanner = new Scanner(new File( file.getAbsolutePath()+".txt"));) {
-	    while(scanner.hasNextLine())
-	     all = scanner.nextLine();
-	}*/
-	
-	BufferedReader br = new BufferedReader (
-			new FileReader(file.getAbsolutePath()+".txt"));
-	
-	
-	
- 
-	
-
-	
-	
-	 String start ="LEARNING";
-	 String end = "teaching";
-	 String newTxt="";
-	
-	//newTxt.substring(all.indexOf(start));
-	
-	PrintWriter pw = new PrintWriter(file+"new"+".txt");
-	pw.print(all);
-	pw.close();
-	
-	
+            if ((tokenFound) && (!line.equals("LO1 "))) { output+=line+" ";}            
+            
+        }
+      
+        return output;
+    } catch (Exception e) {
+        return e.getMessage();
+    }
 	
 	}
 

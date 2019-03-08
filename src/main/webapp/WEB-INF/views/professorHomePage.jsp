@@ -34,7 +34,29 @@
     </div>
 </nav>
 
+<script>
+
+
+
+
+</script>
+
+
  <div class="container"><br/>
+        
+<c:if test="${!empty message}">
+ <div class="alert alert-success" >
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  ${message}
+  </div>
+</c:if> 
+<c:if test="${!empty errorMessage}">
+ <div class="alert alert-danger">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  ${errorMessage}
+  </div>
+</c:if>  
+        
         
       <h2>Welcome ${firstname}</h2><br>
 
