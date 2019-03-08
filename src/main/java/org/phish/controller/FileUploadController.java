@@ -19,6 +19,10 @@ import org.apache.poi.xwpf.usermodel.BreakType;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
+import org.phish.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +45,8 @@ public class FileUploadController {
 	/*private static final Logger logger = LoggerFactory
 			.getLogger(FileUploadController.class);
 */
-			
+	@Autowired
+	UserService userService;
 	/**
 	 * Upload single file using Spring Controller
 	 */
@@ -49,6 +54,13 @@ public class FileUploadController {
 	public String uploadFileHandler(@RequestParam("name") String name,
 			@RequestParam("file") MultipartFile file,Model model) {
 
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		String username = authentication.getName();
+		
+		String userlist = userService.getUser(username);		
+	
+		model.addAttribute("firstname",userlist);
 		String message;
 		if (!file.isEmpty()) {
 			try {	
@@ -78,16 +90,16 @@ public class FileUploadController {
 				 message = "You successfully uploaded file " + name;
 				model.addAttribute("message", message);
 				
-				return "redirect:/professorHomePage";
+				return "professorHomePage";
 			} catch (Exception e) {
 				message = "You failed to upload " + name + " => " + e.getMessage();
 				model.addAttribute("errorMessage", message);
-				return "redirect:/professorHomePage";
+				return "professorHomePage";
 			}
 		} else {
 			message ="You failed to upload " + name	+ " because the file was empty.";
 			model.addAttribute("errorMessage", message);
-			return "redirect:/professorHomePage";
+			return "professorHomePage";
 		}
 		
 		
