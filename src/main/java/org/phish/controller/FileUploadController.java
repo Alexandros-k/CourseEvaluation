@@ -78,16 +78,16 @@ public class FileUploadController {
 				 message = "You successfully uploaded file " + name;
 				model.addAttribute("message", message);
 				
-				return "professorHomePage";
+				return "redirect:/professorHomePage";
 			} catch (Exception e) {
 				message = "You failed to upload " + name + " => " + e.getMessage();
 				model.addAttribute("errorMessage", message);
-				return "professorHomePage";
+				return "redirect:/professorHomePage";
 			}
 		} else {
 			message ="You failed to upload " + name	+ " because the file was empty.";
 			model.addAttribute("errorMessage", message);
-			return "professorHomePage";
+			return "redirect:/professorHomePage";
 		}
 		
 		
