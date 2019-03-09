@@ -65,7 +65,8 @@
 <td width="80">${syllabus.analyzeCounter}</td>
 <td width="80">${syllabus.evaluateCounter}</td>
 <td width="80">${syllabus.createCounter}</td>
-
+<td><a type="button" class="btn btn-danger" 
+href="<c:url value ='/deleteSyllabus/${syllabus.id}'/>">Delete</a></td>
 
 </tr>
 </c:forEach>

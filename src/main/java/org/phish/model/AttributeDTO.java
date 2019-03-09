@@ -1,9 +1,9 @@
 package org.phish.model;
 
 public class AttributeDTO {
-
-	private String name;
-
+	
+	private int id;
+	private String name;	
 	private int remeberCounter;
 	private int understandCounter;
 	private int applyCounter;
@@ -26,6 +26,26 @@ public class AttributeDTO {
 		this.analyzeCounter = analyzeCounter;
 		this.evaluateCounter = evaluateCounter;
 		this.createCounter = createCounter;
+	}
+	
+	
+	public AttributeDTO(int id, String name, int remeberCounter, int understandCounter, int applyCounter,
+			int analyzeCounter, int evaluateCounter, int createCounter) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.remeberCounter = remeberCounter;
+		this.understandCounter = understandCounter;
+		this.applyCounter = applyCounter;
+		this.analyzeCounter = analyzeCounter;
+		this.evaluateCounter = evaluateCounter;
+		this.createCounter = createCounter;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;

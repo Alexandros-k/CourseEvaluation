@@ -62,6 +62,7 @@
 
 <td><a type="button" class="btn btn-primary" 
 href="<c:url value ='/updateUser/${user.id}'/>">Edit</a></td>
+
 <td><a type="button" class="btn btn-danger" 
 href="<c:url value ='/deleteUser/${user.id}'/>">Delete</a></td>
 </tr>

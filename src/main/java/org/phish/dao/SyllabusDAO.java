@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.phish.model.Syllabus;
+import org.phish.model.User;
 import org.phish.model.Verb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -37,45 +38,15 @@ public class SyllabusDAO {
 		List<Syllabus> SyllabusList = session.createQuery("From Syllabus").list();
 		return SyllabusList;
 	}
-		
-	
-	/*
-	public User getUser(int id) {
-		Session session = this.sessionFactory.getCurrentSession();
-		User user = (User)session.get(User.class,new Integer(id));
-		return user;
-	}
 
-	public void addUser(User user) {
+	public  void deleteSyllabus(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.save(user);
+		Syllabus syllabus = (Syllabus)session.load(Syllabus.class, new Integer(id));
+		if(null !=syllabus) {
+			session.delete(syllabus);
 		
-	}
-
-	public void updateUser(User user) {
-		Session session = this.sessionFactory.getCurrentSession();
-		session.merge(user);
-		
-	}
-
-	public void deleteUser(int id) {
-		Session session = this.sessionFactory.getCurrentSession();
-		User user = (User)session.load(User.class, new Integer(id));
-		if(null !=user) {
-			session.delete(user);
 		}
 		
 	}
-	
-	public String getUser(String username) {
-		Session session = this.sessionFactory.getCurrentSession();
-		Query q = session.createQuery("select u.username from User as u where u.username = :username");//Otan exeis hql grafeis ta onomata opws einai sto model kai oxi stin db
-		q.setString("username",username );
-		String userList = (String) q.uniqueResult();
-		return userList;
-	}
-
-	*/
-
 
 }

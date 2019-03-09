@@ -76,8 +76,9 @@ public class FileUploadController {
 					dir.mkdirs();
 					
 				// Create the file on server
+					
 				File serverFile = new File(dir.getAbsolutePath()+ File.separator + name);				
-				
+				if(!serverFile.exists()) {
 				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
 				stream.write(bytes);				
 				stream.close();
@@ -91,11 +92,16 @@ public class FileUploadController {
 				model.addAttribute("message", message);
 				
 				return "professorHomePage";
+				}else {
+					message ="You failed to upload " + name	+ " file allready exist.";
+					model.addAttribute("errorMessage", message);
+					return "professorHomePage";
+				}
 			} catch (Exception e) {
 				message = "You failed to upload " + name + " => " + e.getMessage();
 				model.addAttribute("errorMessage", message);
 				return "professorHomePage";
-			}
+			}			
 		} else {
 			message ="You failed to upload " + name	+ " because the file was empty.";
 			model.addAttribute("errorMessage", message);

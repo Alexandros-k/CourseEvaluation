@@ -32,32 +32,13 @@ public class SyllabusService{
 		return syllabusDAO.getAllSyllabus();
 		
 	}
-
-
-
-
-	
-	/*@Transactional
-	public User getVerb(int id) {		
-		return syllabusDAO.getVerb(id);
-	}
 	
 	@Transactional
-	public void editUder(User user) {
-		userDAO.updateUser(user);
+	public  void deleteSyllabus(int id) {
+		syllabusDAO.deleteSyllabus(id);
 		
 	}
-	
-	@Transactional
-	public void deleteUser(int id) {
-		userDAO.deleteUser(id);
-		
-	}
-	
-	@Transactional
-	public String getUser(String username) {
-		return userDAO.getUser(username);
-		
-	}*/
-	
+
 }
+	
+
