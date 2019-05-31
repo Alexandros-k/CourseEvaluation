@@ -27,12 +27,12 @@ password-parameter="j_password"
            <session-management invalid-session-url="/logout.html">
     <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
 </session-management>
+    </http> 
 
+ 
+    
    
-
-    </http>  
-     
-
+ 
      
     <authentication-manager>  
       <authentication-provider>  
@@ -52,21 +52,5 @@ password-parameter="j_password"
 
   
 </beans:beans>  
-<!--  <http auto-config="true" use-expressions="true">  
-       <intercept-url pattern="/**" access="isAuthenticated()" /> 
-        <intercept-url pattern="/index" access="hasRole('ROLE_ADMIN')" />
-           <intercept-url pattern="/professorHomePage" access="hasRole('ROLE_USER')" /> 
-          <form-login authentication-success-handler-ref="authSuccessHandler" />
-                 
-        <logout logout-url="/static/j_spring_security_logout"
-         logout-success-url="/login" invalidate-session="true"/>
-        <csrf disabled="true"/>
-           <session-management invalid-session-url="/logout.html">
-    <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
-</session-management>
 
-   
-
-    </http>  --> 
-     
 

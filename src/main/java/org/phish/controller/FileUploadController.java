@@ -50,7 +50,7 @@ public class FileUploadController {
 	/**
 	 * Upload single file using Spring Controller
 	 */
-	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+	@RequestMapping(value = "addSyllabus/test/uploadFile", method = RequestMethod.POST)
 	public String uploadFileHandler(@RequestParam("name") String name,
 			@RequestParam("file") MultipartFile file,Model model) {
 
@@ -91,21 +91,21 @@ public class FileUploadController {
 				 message = "You successfully uploaded file " + name;
 				model.addAttribute("message", message);
 				
-				return "professorHomePage";
+				return "addSyllabus";
 				}else {
 					message ="You failed to upload " + name	+ " file allready exist.";
 					model.addAttribute("errorMessage", message);
-					return "professorHomePage";
+					return "addSyllabus";
 				}
 			} catch (Exception e) {
 				message = "You failed to upload " + name + " => " + e.getMessage();
 				model.addAttribute("errorMessage", message);
-				return "professorHomePage";
+				return "addSyllabus";
 			}			
 		} else {
 			message ="You failed to upload " + name	+ " because the file was empty.";
 			model.addAttribute("errorMessage", message);
-			return "professorHomePage";
+			return "addSyllabus";
 		}
 		
 		

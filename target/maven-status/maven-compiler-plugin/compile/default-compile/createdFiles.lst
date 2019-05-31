@@ -1,13 +1,16 @@
 org\phish\service\SyllabusService.class
 org\phish\dao\UserDetailsDAO.class
 org\phish\service\UserService.class
+org\phish\dao\ProgrammeDAO.class
 org\phish\helper\FileSearch.class
 org\phish\model\UserDetails.class
 org\phish\service\UserDetailsService.class
 org\phish\controller\FileUploadController.class
+org\phish\model\Programme.class
 org\phish\controller\SyllabusController.class
 org\phish\model\Role.class
 org\phish\model\User.class
+org\phish\service\ProgrammeService.class
 org\phish\controller\UserController.class
 org\phish\dao\SyllabusDAO.class
 org\phish\model\Attribute.class
@@ -15,6 +18,7 @@ org\phish\model\Verb.class
 org\phish\helper\MySimpleUrlAuthenticationSuccessHandler.class
 org\phish\model\Course.class
 org\phish\controller\LoginController.class
+org\phish\controller\ProgrammeController.class
 org\phish\model\AttributeDTO.class
 org\phish\model\Syllabus.class
 org\phish\dao\UserDAO.class

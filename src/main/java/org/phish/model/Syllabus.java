@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -42,6 +43,12 @@ private static final long serialVersionUID = 1L;
     )
 	private List<Verb>verbs = new ArrayList<Verb>();
 
+	
+	@OneToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name="course_id")
+	private Course course;
+	
+	
 	public Syllabus() {
 		super();
 	}
@@ -59,6 +66,16 @@ private static final long serialVersionUID = 1L;
 		this.verbs = verbs;
 	}
 
+	
+	
+	public Syllabus(String syllabusName, List<Verb> verbs, Course course) {
+		super();
+		this.syllabusName = syllabusName;
+		this.verbs = verbs;
+		this.course = course;
+	}
+
+	
 	public Integer getId() {
 		return id;
 	}

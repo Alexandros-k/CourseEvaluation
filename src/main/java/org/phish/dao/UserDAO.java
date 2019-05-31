@@ -58,7 +58,23 @@ public class UserDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		Query q = session.createQuery("select ud.firstName from UserDetails ud, User u where ud.id= u.id and u.username = :username");//Otan exeis hql grafeis ta onomata opws einai sto model kai oxi stin db
 		q.setString("username",username );
-		String userList = (String) q.uniqueResult();
+		String userList = (String) q.uniqueResult();		
+		return userList;
+	}
+	
+	public int getUserId(String username) {
+		Session session = this.sessionFactory.getCurrentSession();
+		Query q = session.createQuery("select u.id from User u where u.username = :username");
+		q.setString("username",username );
+		int userId = (int) q.uniqueResult();		
+		return userId;
+	}	
+
+	public int getUserByLastName(String lastName) {
+		Session session = this.sessionFactory.getCurrentSession();
+		Query q = session.createQuery("select u.id from User u, UserDetails ud where u.id= ud.id and lastname= :lastName");//Otan exeis hql grafeis ta onomata opws einai sto model kai oxi stin db
+		q.setString("lastName",lastName );
+		int userList = (int) q.uniqueResult();
 		return userList;
 	}
 

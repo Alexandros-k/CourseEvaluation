@@ -38,52 +38,36 @@
 
 <div class="container">
 
+<form:form class="form-group" method="post" modelAttribute="programme" action="statistics2">
 
-<c:if test="${!empty SyllabusList}">
-<table class="table table-hover">
-<tr>
-		
-		<th width="120">CourseName</th>
-		<th width="120">remember</th>
-		<th width="120">understand</th>
-		<th width="60">apply</th>
-		<th width="80">analyze</th>
-		<th width="60">evaluate</th>
-		<th width="60">create</th>
-		
-		
-	</tr>
+  <td align="right">select programme to view statistics</td>
+        <td>
+            
+            
+    <form:select path="programme_name" >
+                <c:forEach items="${listOfProgrammes}" var="programme">
+                    <option value="${programme.programme_name}">${programme.programme_name}</option>
+                </c:forEach>
+            </form:select> 
+            
+    
+            
+            <tr><td><input type="submit" class="btn btn-primary"></td></tr>
+</td>
+</form:form>
 
-<c:forEach items="${VerbList}" var="syllabus">
-
-<tr>
-
-<td width="80">${syllabus.name}</td>
-<td width="80">${syllabus.remeberCounter}</td>
-<td width="80">${syllabus.understandCounter}</td>
-<td width="80">${syllabus.applyCounter}</td>
-<td width="80">${syllabus.analyzeCounter}</td>
-<td width="80">${syllabus.evaluateCounter}</td>
-<td width="80">${syllabus.createCounter}</td>
-<td><a type="button" class="btn btn-danger" 
-href="<c:url value ='/deleteSyllabus/${syllabus.id}'/>">Delete</a></td>
-
-</tr>
-</c:forEach>
-<tr>
-
-<td width="80">Total</td>
-<c:forEach items="${Verb}" var="syll">
-
-  <td> ${syll.value}</td>
-</c:forEach>
-
-</tr>
-</table>
+ 
 
 
-</c:if>
 
+
+
+
+
+
+<a role="button" class="btn btn-primary" href="<c:url value="/admin"/>">Back</a>
 </div>
+
+
 </body>
 </html>

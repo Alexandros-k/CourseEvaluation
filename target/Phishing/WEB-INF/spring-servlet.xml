@@ -31,7 +31,7 @@
 		destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url"
-			value="jdbc:mysql://localhost:3306/onetomanyrole" />
+			value="jdbc:mysql://localhost:3306/courseevaluationdb" />
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="" />
 	</beans:bean>
@@ -46,6 +46,7 @@
 				<beans:value>org.phish.model.Role</beans:value>
 				<beans:value>org.phish.model.UserDetails</beans:value>
 				<beans:value>org.phish.model.Course</beans:value>
+				<beans:value>org.phish.model.Programme</beans:value>
 				<beans:value>org.phish.model.Syllabus</beans:value>
 				<beans:value>org.phish.model.Verb</beans:value>
 				<beans:value>org.phish.model.Attribute</beans:value>

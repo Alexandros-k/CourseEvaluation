@@ -33,6 +33,11 @@ public class UserService{
 	}
 	
 	@Transactional
+	public int getUserByLastName(String lastName) {		
+		return userDAO.getUserByLastName(lastName);
+	}
+	
+	@Transactional
 	public void editUder(User user) {
 		userDAO.updateUser(user);
 		
@@ -46,8 +51,12 @@ public class UserService{
 	
 	@Transactional
 	public String getUser(String username) {
-		return userDAO.getUser(username);
-		
+		return userDAO.getUser(username);		
+	}
+	
+	@Transactional
+	public int getUserId(String userName) {
+		return userDAO.getUserId(userName);		
 	}
 	
 }

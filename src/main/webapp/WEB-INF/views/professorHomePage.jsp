@@ -58,41 +58,42 @@
 </c:if>  
         
         
-      <h2>Welcome ${firstname}</h2><br>
+      <h2>Welcome ${user.userDetails.firstName} ${user.userDetails.lastName}</h2><br>
+      
+
+      
 
 
-	<form method="POST" action="uploadFile" enctype="multipart/form-data">
-	
-		File to upload:<input type="file" name="file" class="form-control-file" id="exampleFormControlFile1" >
-		
-		
-		Name: <input type="text" name="name" class="form-control"><br /> 
-		
-		
-		
-		<input type="submit" value="Upload"  class="btn btn-primary"> Press here to upload the file!
-		
-		
-	</form>
-	
-	
-	
-<form:form method="post" class="form-group" action="addSyllabus">
-<table>
+<c:if test="${!empty user}">
+<table class="table table-hover">
+ <h3>Select course to upload Syllabus</h3><br>
+	<tr>
+		<th width="80">Id</th>
+		<th width="120">Programme Course</th>		
+		<th width="120">Syllabus Name</th>	
+				
+	</tr>
+
+<c:forEach items="${newCourses}" var="course">
+
 <tr>
-<th>submit Syllabus</th>
+<td width="80">${course.id}</td>
+<td width="80">${course.name}</td>
+<td width="80">${course.syllabus.name}</td>
+
+<c:if test="${empty course.syllabus.name}">
+<td><a type="button" class="btn btn-primary" 
+href="<c:url value ='/addSyllabus/${course.id}'/>">add syllabus</a></td>
+</c:if>
 </tr>
-<tr>
-<hi1>choose name of course to process</hi1></br>
-Name: <input type="text" name="courseName" class="form-control"><br />
-</tr>
-<tr><td><input type="submit"  class="btn btn-primary"/></td></tr>
-
-
-
-
+</c:forEach>
 </table>
-</form:form>
+</c:if>
+
+
+
+
+
 
 
 

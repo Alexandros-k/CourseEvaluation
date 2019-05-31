@@ -18,12 +18,12 @@
 <tr>
 <tr><td><form:hidden path="id"/></td></tr>
 <tr><td><form:hidden path="userDetails.id"/></td></tr>
-<tr><td><form:hidden path="courses[0].id"/></td></tr>
+<%-- <tr><td><form:hidden path="courses[0].id"/></td></tr> --%>
 <tr><td>First Name:<form:input path="userDetails.firstName" class="form-control"></form:input></td></tr>
 <tr><td>Last Name:<form:input path="userDetails.lastName" class="form-control"></form:input></td></tr>
 <tr><td>Username:<form:input path="username" class="form-control"></form:input></td></tr>
 <tr><td>Password:<form:input path="password" class="form-control"></form:input></td></tr>
-<tr><td>course:<form:input path="courses[0].name" class="form-control" ></form:input></td></tr>
+<%-- <tr><td>course:<form:input path="courses[0].name" class="form-control" ></form:input></td></tr> --%>
 
 <tr>
     <td>

@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,7 +24,7 @@ public class Course implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="course_id")
+	@Column(name="id")
 	@GeneratedValue
 	private Integer id;
 	
@@ -34,9 +35,13 @@ public class Course implements Serializable {
 	@JoinColumn(name="user_id")
 	private User user;
 
-
+	@ManyToOne
+	@JoinColumn(name="programme_id")
+	private Programme programme;
 	
-
+	@OneToOne(mappedBy="course",cascade = { CascadeType.ALL })
+	private Syllabus syllabus;
+	
 	public Course() {
 		super();
 	}
@@ -70,6 +75,27 @@ public class Course implements Serializable {
 		this.user = user;
 	}
 
+
+	public Programme getProgramme() {
+		return programme;
+	}
+
+
+	public void setProgramme(Programme programme) {
+		this.programme = programme;
+	}
+
+
+	public Syllabus getSyllabus() {
+		return syllabus;
+	}
+
+
+	public void setSyllabus(Syllabus syllabus) {
+		this.syllabus = syllabus;
+	}
+
+	
 	
 	
 }

@@ -1,4 +1,6 @@
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\service\ProgrammeService.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\Course.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\Programme.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\Role.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\controller\UserController.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\controller\SyllabusController.java
@@ -7,6 +9,7 @@ C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\helper\MySimpleUrlAut
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\service\UserDetailsService.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\helper\FileSearch.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\Attribute.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\controller\ProgrammeController.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\dao\SyllabusDAO.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\Verb.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\controller\LoginController.java
@@ -14,6 +17,7 @@ C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\Syllabus.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\AttributeDTO.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\User.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\service\SyllabusService.java
+C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\dao\ProgrammeDAO.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\dao\UserDAO.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\model\UserDetails.java
 C:\Users\Alex\git\CourseEvaluation\src\main\java\org\phish\dao\UserDetailsDAO.java

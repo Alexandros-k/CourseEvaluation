@@ -41,10 +41,10 @@
 		<th width="80">Id</th>
 		<th width="120">firstname</th>
 		<th width="120">lastname</th>
-		<th width="60">username</th>
+		<th width="80">username</th>
 		<th width="80">password</th>
 		<th width="60">role</th>
-		<th width="60">course</th>
+		
 		
 		
 	</tr>
@@ -58,7 +58,7 @@
 <td width="80">${user.username}</td>
 <td width="80">${user.password}</td>
 <td width="80">${user.role.role}</td>
-<td width="80">${user.courses[0].name}</td>
+
 
 <td><a type="button" class="btn btn-primary" 
 href="<c:url value ='/updateUser/${user.id}'/>">Edit</a></td>
