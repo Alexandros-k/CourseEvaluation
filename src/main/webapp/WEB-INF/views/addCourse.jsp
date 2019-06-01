@@ -19,7 +19,7 @@
 <tr><td><form:hidden path="id"/></td></tr>
 <tr><td><form:hidden path="programme.id"/></td></tr>
 <tr><td>course:<form:input path="name" class="form-control" ></form:input></td></tr>
-<tr><td><form:hidden path="user.id"/></td></tr>
+
 <%-- <tr><td><form:hidden path="courses[0].id"/></td></tr> --%>
 <%-- <tr><td>course:<form:input path="courses[0].name" class="form-control" ></form:input></td></tr> --%>
 <tr><td><input type="submit" class="btn btn-primary"></td></tr>
