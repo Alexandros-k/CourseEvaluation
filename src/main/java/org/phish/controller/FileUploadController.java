@@ -25,6 +25,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,9 +52,9 @@ public class FileUploadController {
 	 * Upload single file using Spring Controller
 	 */
 	@RequestMapping(value = "addSyllabus/test/uploadFile", method = RequestMethod.POST)
-	public String uploadFileHandler(@RequestParam("name") String name,
+	public String uploadFileHandler(@RequestParam("name") String name,@RequestParam("id")int id,
 			@RequestParam("file") MultipartFile file,Model model) {
-
+		int id2 =id;
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		
 		String username = authentication.getName();
@@ -90,22 +91,26 @@ public class FileUploadController {
 				
 				 message = "You successfully uploaded file " + name;
 				model.addAttribute("message", message);
+				model.addAttribute("id", id2);
 				
-				return "addSyllabus";
+				return "redirect:/addSyllabus/{id}";
 				}else {
 					message ="You failed to upload " + name	+ " file allready exist.";
 					model.addAttribute("errorMessage", message);
-					return "addSyllabus";
+					model.addAttribute("id", id2);
+					return "redirect:/addSyllabus/{id}";
 				}
 			} catch (Exception e) {
 				message = "You failed to upload " + name + " => " + e.getMessage();
 				model.addAttribute("errorMessage", message);
-				return "addSyllabus";
+				model.addAttribute("id", id2);
+				return "redirect:/addSyllabus/{id}";
 			}			
 		} else {
 			message ="You failed to upload " + name	+ " because the file was empty.";
 			model.addAttribute("errorMessage", message);
-			return "addSyllabus";
+			model.addAttribute("id", id2);
+			return "redirect:/addSyllabus/{id}";
 		}
 		
 		

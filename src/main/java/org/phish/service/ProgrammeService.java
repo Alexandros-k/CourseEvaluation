@@ -79,12 +79,12 @@ public class ProgrammeService {
 		
 	}
 	
-/*	@Transactional
+	@Transactional
 	public void editProfessor(Course course) {
 		programmeDAO.editProfessor(course);
 		
 	}
 	
-	*/
+	
 	
 }

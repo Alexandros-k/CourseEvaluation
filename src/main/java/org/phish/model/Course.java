@@ -39,7 +39,7 @@ public class Course implements Serializable {
 	@JoinColumn(name="programme_id")
 	private Programme programme;
 	
-	@OneToOne(mappedBy="course",cascade = { CascadeType.ALL })
+	@OneToOne(mappedBy="course",orphanRemoval=true,cascade = { CascadeType.ALL })
 	private Syllabus syllabus;
 	
 	public Course() {

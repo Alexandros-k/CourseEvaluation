@@ -97,17 +97,16 @@ public class ProgrammeDAO {
 
 	public void editCourse(Course course) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.merge(course);
-		
+		session.merge(course);		
 	}
 
-/*	
+	
 	public void editProfessor(Course course) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(course);
+		session.merge(course);
 	}	
 	
 	
-	*/
+	
 
 }

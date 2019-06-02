@@ -44,7 +44,7 @@ private static final long serialVersionUID = 1L;
 	private List<Verb>verbs = new ArrayList<Verb>();
 
 	
-	@OneToOne(cascade = { CascadeType.ALL })
+	@OneToOne(cascade = { CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.DETACH})
 	@JoinColumn(name="course_id")
 	private Course course;
 	
@@ -98,6 +98,16 @@ private static final long serialVersionUID = 1L;
 
 	public void setVerbs(List<Verb> verbs) {
 		this.verbs = verbs;
+	}
+	
+	
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public static long getSerialversionuid() {

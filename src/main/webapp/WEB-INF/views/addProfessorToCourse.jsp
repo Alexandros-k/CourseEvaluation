@@ -19,6 +19,9 @@
 <tr><td><form:hidden path="id"/></td></tr>
 <tr><td><form:hidden path="name"/></td></tr>
 <tr><td><form:hidden path="programme.id"/></td></tr>
+<%-- <tr><td><form:hidden path="user.id"/></td></tr>--%>
+<%-- <tr><td><form:hidden path="user.userDetails.id"/></td></tr> --%>
+<%-- <tr><td><form:hidden path="user.userDetails.firstName"/></td></tr> --%>
 <tr><td>professor's lastname:<form:input path="user.userDetails.lastName" class="form-control" ></form:input></td></tr>
 <tr><td><input type="submit" class="btn btn-primary"></td></tr>
 <br>

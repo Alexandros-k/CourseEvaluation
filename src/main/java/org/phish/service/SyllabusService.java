@@ -3,6 +3,8 @@ package org.phish.service;
 import java.util.List;
 
 import org.phish.dao.SyllabusDAO;
+import org.phish.model.Course;
+import org.phish.model.Programme;
 import org.phish.model.Syllabus;
 import org.phish.model.Verb;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +36,17 @@ public class SyllabusService{
 	}
 	
 	@Transactional
-	public  void deleteSyllabus(int id) {
-		syllabusDAO.deleteSyllabus(id);
+	public void deleteSyllabus(Course cr, Syllabus sl) {
+		syllabusDAO.deleteSyllabus(cr,sl);
 		
 	}
+	
+	@Transactional
+	public  Syllabus getSyllabus(int id) {
+		return syllabusDAO.getSyllabus(id);
+		
+	}
+
 
 }
 	

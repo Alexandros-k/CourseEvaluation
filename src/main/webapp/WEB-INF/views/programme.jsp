@@ -85,9 +85,9 @@ href="<c:url value ='/deleteCourse/${course.id}'/>">Delete</a></td>
 <td width="80"><a type="button" class="btn btn-primary" 
 href="<c:url value ='/editCourse/${course.id}'/>">Edit Course</a></td>
 
-<%-- <td width="80"><a type="button" class="btn btn-primary" 
+ <td width="80"><a type="button" class="btn btn-primary" 
 href="<c:url value ='/reAssignProfessor/${course.id}'/>">reassign Professor</a></td>
- --%>
+ 
 </tr>
 </c:forEach>
 

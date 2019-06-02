@@ -5,6 +5,7 @@ import java.util.List;
 import org.phish.model.Course;
 import org.phish.model.Programme;
 import org.phish.model.User;
+import org.phish.model.UserDetails;
 import org.phish.service.ProgrammeService;
 import org.phish.service.SyllabusService;
 import org.phish.service.UserDetailsService;
@@ -151,14 +152,17 @@ public class ProgrammeController {
 	
 	@RequestMapping(value= "/editCourse/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public String editCourse(@PathVariable("id")int id,Model model) {
-		
-		model.addAttribute("course",this.programmeService.getCourse(id));
+		Course cr = this.programmeService.getCourse(id);
+		User ur = cr.getUser();
+		model.addAttribute("course",cr);
+		model.addAttribute("user",ur);
 		
 		return "addCourse" ;	
 	}
 	
 	@RequestMapping(value = "/editCourse/test/addCourseToDb",method = RequestMethod.POST,headers = "Accept=application/json")
-	public String updateCourse(@ModelAttribute("course")Course course) {				
+	public String updateCourse(@ModelAttribute("course")Course course) {	
+		
 			
 		programmeService.editCourse(course);		
 		
@@ -166,20 +170,24 @@ public class ProgrammeController {
 		
 	}
 	
-/*	@RequestMapping(value= "/reAssignProfessor/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
+	@RequestMapping(value= "/reAssignProfessor/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public String reAssignProfessor(@PathVariable("id")int id,Model model) {
-		
-		model.addAttribute("course",this.programmeService.getCourse(id));
+		Course cr = this.programmeService.getCourse(id);
+		model.addAttribute("course",cr);
 		
 		return "addProfessorToCourse" ;	
 	}
 	
 	@RequestMapping(value = "/reAssignProfessor/test/addProfessorToCourse",method = RequestMethod.POST,headers = "Accept=application/json")
 	public String updateProfessor(@ModelAttribute("course")Course course) {
+		String lastName = course.getUser().getUserDetails().getLastName();	
 		
+		int userId = userService.getUserByLastName(lastName);
+		
+		course.getUser().setId(userId);
 		programmeService.editProfessor(course);	
 		
 		return "redirect:/programmePage";
 	}
-	*/
+	
 }

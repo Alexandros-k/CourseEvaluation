@@ -20,7 +20,7 @@
       <a class="nav-link" href="<c:url value = "professorsPage"/>">professors</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<c:url value = ""/>">modules</a>
+      <a class="nav-link" href="<c:url value = "programmePage"/>">modules</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="<c:url value = "statistics"/>">statistics</a>

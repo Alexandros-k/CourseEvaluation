@@ -184,7 +184,19 @@ Course cr = programmeService.getCourse(syllabusId);
 
 	@RequestMapping(value= "/deleteSyllabus/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public String deleteSyllabus(@PathVariable("id")int id) {
-		syllabusService.deleteSyllabus(id);
+		
+		Syllabus sl =	syllabusService.getSyllabus(id);
+		List<Course> courseList = sl.getCourse().getProgramme().getCourses();
+		
+		Programme programme =sl.getCourse().getProgramme();
+		
+		courseList.remove(sl);
+			Course cr =sl.getCourse();
+		syllabusService.deleteSyllabus(cr,sl);
+		
+		
+			
+		
 		return "redirect:/statistics";
 	}
 	
@@ -230,7 +242,7 @@ Course cr = programmeService.getCourse(syllabusId);
 		
 		syl.setId(id);
 		
-		model.addAttribute("syllabus", syl);		
+		model.addAttribute("syllabus", syl);	
 		
 		return "addSyllabus" ;		
 		

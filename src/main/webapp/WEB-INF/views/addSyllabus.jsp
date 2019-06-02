@@ -58,10 +58,10 @@
 </c:if>  
         
         
-      <h2>Welcome ${user.userDetails.firstName} ${user.userDetails.lastName}</h2><br>
+   
       
 
-	<form method="POST" action="test/uploadFile" enctype="multipart/form-data">
+	<form method="POST" action="test/uploadFile" enctype="multipart/form-data" modelAttribute="syllabus">
 	
 	
 	
@@ -70,7 +70,7 @@
 		
 		Name: <input type="text" name="name" class="form-control"><br /> 
 		
-		
+		<input type="hidden"  name="id" value="${syllabus.id }" />
 		
 		<input type="submit" value="Upload"  class="btn btn-primary"> Press here to upload the file!
 		

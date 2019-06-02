@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.phish.model.Course;
+import org.phish.model.Programme;
 import org.phish.model.Syllabus;
 import org.phish.model.User;
 import org.phish.model.Verb;
@@ -39,13 +41,21 @@ public class SyllabusDAO {
 		return SyllabusList;
 	}
 
-	public  void deleteSyllabus(int id) {
+	public  void deleteSyllabus(Course cr, Syllabus sl) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Syllabus syllabus = (Syllabus)session.load(Syllabus.class, new Integer(id));
-		if(null !=syllabus) {
-			session.delete(syllabus);
+		/*Syllabus syllabus = (Syllabus)session.load(Syllabus.class, new Integer(id));
+		if(null !=syllabus) {*/
+		session.delete(sl);
+			//session.saveOrUpdate(cr);
 		
-		}
+		/*}*/
+		
+	}
+
+	public Syllabus getSyllabus(int id) {
+		Session session = this.sessionFactory.getCurrentSession();
+		Syllabus syllabus = (Syllabus)session.get(Syllabus.class,new Integer(id));
+		return syllabus;
 		
 	}
 

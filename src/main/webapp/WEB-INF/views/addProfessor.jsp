@@ -30,8 +30,8 @@
         <ul>Role:
             <form:select path="role.id">
             <form:option value="0" label="--Select Role"/>
-                <form:option value="1">ADMIN</form:option>
-                <form:option value="2">USER</form:option>             
+                <form:option value="1">Headmaster</form:option>
+                <form:option value="2">Professor</form:option>             
             </form:select>
         </ul>
     </td>

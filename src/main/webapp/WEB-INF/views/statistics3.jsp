@@ -20,7 +20,7 @@
       <a class="nav-link" href="<c:url value = "professorsPage"/>">professors</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<c:url value = ""/>">modules</a>
+      <a class="nav-link" href="<c:url value = "programmePage"/>">modules</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="<c:url value = "statistics"/>">statistics</a>
@@ -67,6 +67,9 @@
 <td width="80">${syllabus.analyzeCounter}</td>
 <td width="80">${syllabus.evaluateCounter}</td>
 <td width="80">${syllabus.createCounter}</td>
+<td><a type="button" class="btn btn-danger" 
+href="<c:url value ='/deleteSyllabus/${syllabus.id}'/>">Delete</a></td>
+
 </tr>
 
 
@@ -80,6 +83,7 @@
 <c:forEach items="${Verb}" var="syll">
 
   <td> ${syll.value}</td>
+  
 </c:forEach>
 
 </tr>
