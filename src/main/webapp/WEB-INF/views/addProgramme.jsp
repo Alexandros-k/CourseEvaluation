@@ -13,12 +13,12 @@
 <form:form class="form-group" method="post" modelAttribute="programme" action="addProgrammeToDb">
 <table>
 <tr>
-<th>Add User</th>
+<th>Add Programme</th>
 </tr>
 <tr>
 <tr><td><form:hidden path="id"/></td></tr>
 
-<tr><td>Programme Name:<form:input path="programme_name" class="form-control"></form:input></td></tr>
+<tr><td>Add Programme Name:<form:input path="programme_name" class="form-control"></form:input></td></tr>
 
 
 <tr><td><input type="submit" class="btn btn-primary"></td></tr>

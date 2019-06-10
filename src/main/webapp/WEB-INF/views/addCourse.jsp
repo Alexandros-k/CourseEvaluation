@@ -13,7 +13,7 @@
 <form:form class="form-group" method="post" modelAttribute="course" action="test/addCourseToDb">
 <table>
 <tr>
-<th>Add User</th>
+<th>Add Course</th>
 </tr>
 <tr>
 <tr><td><form:hidden path="id"/></td></tr>
@@ -21,7 +21,7 @@
 <c:if test="${!empty user}">
  <tr><td><form:hidden path="user.id" value=""/></td></tr>
 </c:if>
-<tr><td>course:<form:input path="name" class="form-control" ></form:input></td></tr>
+<tr><td>Add course Name:<form:input path="name" class="form-control" ></form:input></td></tr>
 
 <%-- <tr><td><form:hidden path="courses[0].id"/></td></tr> --%>
 <%-- <tr><td>course:<form:input path="courses[0].name" class="form-control" ></form:input></td></tr> --%>
