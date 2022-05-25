@@ -159,7 +159,7 @@
   </build>
   	<properties>
 		<spring.version>4.2.1.RELEASE</spring.version>
-		<security.version>4.0.3.RELEASE</security.version>
+		<security.version>5.5.7</security.version>
 		<jdk.version>1.7</jdk.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
 		<org.aspectj-version>1.7.4</org.aspectj-version>
